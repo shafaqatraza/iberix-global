@@ -18,7 +18,7 @@ function timeFor(tz) {
 }
 
 export default function LiveStatusTicker() {
-  const [now, setNow] = useState(Date.now());
+  const [, setNow] = useState(Date.now());
 
   useEffect(() => {
     const id = setInterval(() => setNow(Date.now()), 1000);
@@ -26,18 +26,18 @@ export default function LiveStatusTicker() {
   }, []);
 
   return (
-    <div className="hidden md:flex items-center gap-6 font-mono text-[11px] uppercase tracking-[0.18em] text-techwhite/60">
-      <span className="flex items-center gap-2">
+    <div className="hidden md:flex items-center gap-6 eyebrow text-subtle">
+      <span className="flex items-center gap-2 text-brand-light">
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-signal opacity-60 animate-pulse-amber" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
+          <span className="absolute inline-flex h-full w-full rounded-full bg-brand-light opacity-60 animate-pulse-brand" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-light" />
         </span>
         Live
       </span>
       {REGIONS.map((r) => (
         <span key={r.label} className="flex items-center gap-2">
-          <span className="text-techwhite/40">{r.label}</span>
-          <span className="text-techwhite tabular-nums">{timeFor(r.tz)}</span>
+          <span className="text-subtle/70">{r.label}</span>
+          <span className="text-paper/80 tabular-nums">{timeFor(r.tz)}</span>
         </span>
       ))}
     </div>

@@ -16,7 +16,6 @@ export default function AccountabilityBar() {
       const y = window.scrollY;
       setHidden(y < 400);
 
-      // Determine active section
       let current = "top";
       for (const s of STEPS) {
         const el = document.getElementById(s.id);
@@ -40,35 +39,28 @@ export default function AccountabilityBar() {
         hidden ? "translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="h-px w-full hairline" />
-      <div className="bg-deepspace/95 backdrop-blur-md border-t border-tungsten">
+      <div className="bg-ink/95 backdrop-blur-md border-t border-white/10">
         <div className="px-6 md:px-12 py-3 flex items-center justify-between gap-6">
-          {/* Progress */}
           <div className="hidden md:flex items-center gap-4 flex-1 max-w-md">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-techwhite/40 whitespace-nowrap">
-              Journey
-            </span>
-            <div className="relative flex-1 h-px bg-tungsten">
+            <span className="eyebrow text-subtle whitespace-nowrap">Journey</span>
+            <div className="relative flex-1 h-px bg-white/10">
               <div
-                className="absolute left-0 top-0 h-px bg-signal transition-all duration-500"
+                className="absolute left-0 top-0 h-px bg-brand-light transition-all duration-500"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-signal whitespace-nowrap">
-              {active}
-            </span>
+            <span className="eyebrow text-brand-light whitespace-nowrap">{active}</span>
           </div>
 
-          {/* Step shortcuts */}
           <div className="flex items-center gap-1 md:gap-2">
             {STEPS.map((s) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className={`px-3 md:px-4 py-2 font-mono text-[10px] uppercase tracking-[0.18em] border transition-all ${
+                className={`px-3 md:px-4 py-2 rounded-full eyebrow border transition-all ${
                   active === s.id
-                    ? "border-signal text-signal"
-                    : "border-tungsten text-techwhite/50 hover:text-techwhite"
+                    ? "border-brand bg-brand text-paper"
+                    : "border-white/15 text-subtle hover:text-paper"
                 }`}
               >
                 {s.label}
@@ -78,7 +70,7 @@ export default function AccountabilityBar() {
 
           <a
             href="#accountability"
-            className="hidden lg:inline-flex items-center gap-2 bg-signal text-deepspace px-5 py-2 font-mono text-[10px] uppercase tracking-[0.2em] font-semibold hover:shadow-[0_0_30px_-6px_rgba(253,184,19,0.7)] transition-shadow"
+            className="hidden lg:inline-flex items-center gap-2 bg-brand text-paper rounded-full px-5 py-2 eyebrow font-semibold hover:shadow-[0_8px_28px_-10px_rgba(29,158,117,0.6)] transition-shadow"
           >
             Initialize →
           </a>

@@ -60,7 +60,21 @@ module.exports = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+  			ink: '#16161A',
+  			'ink-soft': '#1F2A26',
+  			brand: {
+  				DEFAULT: '#1D9E75',
+  				light: '#5DCAA5',
+  				deep: '#0F6E56'
+  			},
+  			mint: '#E1F5EE',
+  			offwhite: '#F4F6F5',
+  			paper: '#FFFFFF',
+  			line: '#E4E7E5',
+  			subtle: '#A2A8A4',
+  			body: '#5C625F',
+  			'body-dark': '#3A3E3B'
   		},
   		fontFamily: {
   			heading: ['var(--font-heading)'],
@@ -68,22 +82,18 @@ module.exports = {
   			display: ['var(--font-display)'],
   			mono: ['var(--font-mono)']
   		},
+  		boxShadow: {
+  			soft: '0 1px 2px rgba(22,22,26,0.04), 0 10px 30px -12px rgba(22,22,26,0.10)',
+  			'soft-lg': '0 2px 4px rgba(22,22,26,0.05), 0 24px 48px -16px rgba(22,22,26,0.16)'
+  		},
   		keyframes: {
   			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
+  				from: { height: '0' },
+  				to: { height: 'var(--radix-accordion-content-height)' }
   			},
   			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
+  				from: { height: 'var(--radix-accordion-content-height)' },
+  				to: { height: '0' }
   			}
   		},
   		animation: {

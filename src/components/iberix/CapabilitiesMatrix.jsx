@@ -56,7 +56,7 @@ const SERVICES = [
       { k: "Sizing", v: "1 to 50+ engineers" },
       { k: "Governance", v: "Single SPOC" },
     ],
-    desc: "Dedicated, in-country engineering pods operating under your standards — managed, scaled and accounted for by Iberix.",
+    desc: "Dedicated, in-country engineering pods operating under your standards — managed, scaled and accounted for by iberix.",
     span: "md:col-span-7",
   },
 ];
@@ -65,73 +65,65 @@ function ServiceTile({ service, visible }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
-      className={`group relative overflow-hidden border-tungsten bg-[#0c0d0e] ${service.span} ${visible ? "reveal-init is-visible" : "reveal-init"}`}
+      className={`group relative overflow-hidden rounded-lg bg-paper shadow-soft hover:shadow-soft-lg transition-all duration-500 hover:-translate-y-1 ${service.span} ${visible ? "reveal-init is-visible" : "reveal-init"}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ minHeight: "440px" }}
     >
-      {/* Image with blueprint overlay */}
-      <div className="absolute inset-0">
+      <div className="relative h-56 overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
           className={`h-full w-full object-cover transition-all duration-700 ${
-            hovered ? "blur-0 scale-105 opacity-60" : "blur-sm scale-100 opacity-30"
+            hovered ? "scale-105" : "scale-100"
           }`}
         />
-        <div className="absolute inset-0 bg-deepspace/70" />
         <div
           className={`absolute inset-0 blueprint-grid transition-opacity duration-700 ${
-            hovered ? "opacity-10" : "opacity-60"
+            hovered ? "opacity-0" : "opacity-100"
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-deepspace via-deepspace/40 to-transparent" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col justify-between p-7 md:p-9">
-        <div className="flex items-start justify-between">
-          <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-signal">
+        <div className="absolute inset-0 bg-ink/30" />
+        <div className="absolute top-5 left-5">
+          <span className="eyebrow text-paper bg-ink/40 backdrop-blur-sm rounded-full px-3 py-1">
             {service.index} / Service
           </span>
-          <ArrowUpRight
-            className={`h-5 w-5 transition-all duration-500 ${
-              hovered ? "text-signal -translate-y-0.5 translate-x-0.5" : "text-techwhite/40"
-            }`}
-          />
+        </div>
+      </div>
+
+      <div className="p-7 md:p-9">
+        <h3 className="font-heading text-2xl md:text-3xl font-medium tracking-tight-display text-ink leading-tight">
+          {service.title}
+        </h3>
+        <p className="mt-3 text-body text-base md:text-lg max-w-md leading-[1.6]">
+          {service.tagline}
+        </p>
+
+        <div
+          className={`grid grid-cols-1 gap-3 overflow-hidden transition-all duration-500 ${
+            hovered ? "mt-6 max-h-72 opacity-100" : "mt-0 max-h-0 opacity-0"
+          }`}
+        >
+          <div className="h-px w-full bg-line" />
+          <p className="text-body text-sm md:text-base leading-[1.6] pt-2">{service.desc}</p>
+          <div className="grid grid-cols-3 gap-3 pt-2">
+            {service.specs.map((s) => (
+              <div key={s.k} className="flex flex-col">
+                <span className="eyebrow text-subtle">{s.k}</span>
+                <span className="text-[13px] text-body-dark mt-1 leading-snug font-medium">
+                  {s.v}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-auto">
-          <h3 className="font-heading text-2xl md:text-4xl font-medium tracking-tight-display text-techwhite leading-tight">
-            {service.title}
-          </h3>
-          <p className="mt-3 text-techwhite/60 text-base md:text-lg max-w-md leading-[1.6]">
-            {service.tagline}
-          </p>
-
-          {/* Spec sheet reveal */}
-          <div
-            className={`grid grid-cols-1 gap-3 overflow-hidden transition-all duration-500 ${
-              hovered ? "mt-6 max-h-72 opacity-100" : "mt-0 max-h-0 opacity-0"
+        <div className="mt-6 flex items-center gap-2 eyebrow text-brand">
+          View spec sheet
+          <ArrowUpRight
+            className={`h-4 w-4 transition-transform duration-500 ${
+              hovered ? "-translate-y-0.5 translate-x-0.5" : ""
             }`}
-          >
-            <div className="h-px w-full hairline" />
-            <p className="text-techwhite/70 text-sm md:text-base leading-[1.6] pt-2">
-              {service.desc}
-            </p>
-            <div className="grid grid-cols-3 gap-3 pt-2">
-              {service.specs.map((s) => (
-                <div key={s.k} className="flex flex-col">
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-techwhite/40">
-                    {s.k}
-                  </span>
-                  <span className="font-mono text-[11px] text-techwhite/90 mt-1 leading-snug">
-                    {s.v}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -141,31 +133,29 @@ function ServiceTile({ service, visible }) {
 export default function CapabilitiesMatrix() {
   const [ref, visible] = useReveal();
   return (
-    <section ref={ref} id="capabilities" className="relative bg-deepspace px-6 md:px-12 py-32 md:py-44">
+    <section ref={ref} id="capabilities" className="relative bg-offwhite px-6 md:px-12 py-28 md:py-40">
       <div className="max-w-[1600px] mx-auto">
-        {/* Section header */}
         <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
           <div className="col-span-12 md:col-span-2">
-            <span className={`scan-init ${visible ? "is-visible" : ""} font-mono text-[11px] uppercase tracking-[0.22em] text-signal`}>
+            <span className={`scan-init ${visible ? "is-visible" : ""} eyebrow text-brand`}>
               02 / Capabilities
             </span>
           </div>
           <div className="col-span-12 md:col-span-10">
             <h2
-              className={`scan-init ${visible ? "is-visible" : ""} font-heading font-medium tracking-tight-display text-techwhite leading-[1.05]`}
-              style={{ fontSize: "clamp(2.25rem, 5.5vw, 5rem)" }}
+              className={`scan-init ${visible ? "is-visible" : ""} font-heading font-medium tracking-tight-display text-ink leading-[1.05]`}
+              style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)" }}
             >
               The capabilities matrix.
             </h2>
-            <p className="mt-6 text-techwhite/60 text-lg max-w-2xl leading-[1.6]">
+            <p className="mt-6 text-body text-lg max-w-2xl leading-[1.6]">
               Four interlocking engineering disciplines. One accountable partner.
               Hover any module to open its technical specification.
             </p>
           </div>
         </div>
 
-        {/* Interlocking grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-px bg-tungsten border border-tungsten">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {SERVICES.map((s) => (
             <ServiceTile key={s.id} service={s} visible={visible} />
           ))}
