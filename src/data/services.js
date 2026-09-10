@@ -7,12 +7,12 @@ export const SERVICES = [
     title: { en: "Data Centre Deployment", es: "Despliegue de centros de datos" },
     tagline: { en: "Rack, stack and commission at scale.", es: "Rack, montaje y puesta en marcha a escala." },
     desc: {
-      en: "Full lifecycle data centre build — from power and cooling commissioning to rack-level infrastructure and structured cabling.",
-      es: "Construcción completa de centros de datos — desde puesta en marcha de energía y refrigeración hasta infraestructura de rack y cableado estructurado.",
+      en: "Full lifecycle data centre build, from power and cooling commissioning to rack-level infrastructure and structured cabling.",
+      es: "Construcción completa de centros de datos, desde puesta en marcha de energía y refrigeración hasta infraestructura de rack y cableado estructurado.",
     },
     overview: {
-      en: "iberix delivers end-to-end data centre build and commissioning — from greenfield civil and mechanical-electrical fit-out through to rack, stack and live infrastructure handover. Our in-country engineering teams operate under a single accountable SPOC, with documented commissioning sign-off against your SLAs.",
-      es: "iberix ofrece construcción y puesta en marcha integral de centros de datos — desde el acondicionamiento civil y electromecánico en obra nueva hasta el montaje de racks y la entrega de infraestructura en vivo. Nuestros equipos de ingeniería locales operan con un único interlocutor responsable, con entrega documentada y firma de puesta en marcha según sus SLAs.",
+      en: "iberix delivers end-to-end data centre build and commissioning, from greenfield civil and mechanical-electrical fit-out through to rack, stack and live infrastructure handover. Our in-country engineering teams operate under a single accountable SPOC, with documented commissioning sign-off against your SLAs.",
+      es: "iberix ofrece construcción y puesta en marcha integral de centros de datos, desde el acondicionamiento civil y electromecánico en obra nueva hasta el montaje de racks y la entrega de infraestructura en vivo. Nuestros equipos de ingeniería locales operan con un único interlocutor responsable, con entrega documentada y firma de puesta en marcha según sus SLAs.",
     },
     specs: [
       { k: { en: "Discipline", es: "Disciplina" }, v: { en: "Civil, Mechanical, Electrical", es: "Civil, mecánica, eléctrica" } },
@@ -46,12 +46,12 @@ export const SERVICES = [
     title: { en: "Network Deployment", es: "Despliegue de red" },
     tagline: { en: "Edge to core, across borders.", es: "Del borde al núcleo, entre fronteras." },
     desc: {
-      en: "Cross-border network rollouts — fibre splicing, patching, RAN and transport activation with documented handover.",
-      es: "Despliegues de red transfronterizos — empalme de fibra, parcheo, RAN y activación de transporte con entrega documentada.",
+      en: "Cross-border network rollouts: fibre splicing, patching, RAN and transport activation with documented handover.",
+      es: "Despliegues de red transfronterizos: empalme de fibra, parcheo, RAN y activación de transporte con entrega documentada.",
     },
     overview: {
-      en: "Cross-border network deployment — from the edge to the core. iberix field engineers execute fibre, RAN and transport rollouts across multiple countries with a single coordination layer, delivering site-ready turnarounds and documented as-built handover.",
-      es: "Despliegue de red transfronterizo — del borde al núcleo. Los ingenieros de campo de iberix ejecutan despliegues de fibra, RAN y transporte en varios países con una sola capa de coordinación, ofreciendo plazos listos para sitio y entrega documentada as-built.",
+      en: "Cross-border network deployment, from the edge to the core. iberix field engineers execute fibre, RAN and transport rollouts across multiple countries with a single coordination layer, delivering site-ready turnarounds and documented as-built handover.",
+      es: "Despliegue de red transfronterizo, del borde al núcleo. Los ingenieros de campo de iberix ejecutan despliegues de fibra, RAN y transporte en varios países con una sola capa de coordinación, ofreciendo plazos listos para sitio y entrega documentada as-built.",
     },
     specs: [
       { k: { en: "Layer", es: "Capa" }, v: { en: "L1–L3 field engineering", es: "Ingeniería de campo L1–L3" } },
@@ -85,12 +85,12 @@ export const SERVICES = [
     title: { en: "Field Support", es: "Soporte de campo" },
     tagline: { en: "Boots on the ground, on call.", es: "Personal sobre el terreno, disponibles." },
     desc: {
-      en: "Break-fix and proactive field support — dispatch, diagnose and resolve on-site with a single accountable escalation path.",
-      es: "Soporte de campo reactivo y proactivo — dispatch, diagnóstico y resolución in situ con una sola ruta de escalación responsable.",
+      en: "Break-fix and proactive field support: dispatch, diagnose and resolve on-site with a single accountable escalation path.",
+      es: "Soporte de campo reactivo y proactivo: dispatch, diagnóstico y resolución in situ con una sola ruta de escalación responsable.",
     },
     overview: {
-      en: "Break-fix and proactive field support with boots on the ground across EMEA, APAC and the Americas. iberix dispatches vetted, insured engineers with a single accountable escalation path — per-incident or retained, 24/7.",
-      es: "Soporte reactivo y proactivo con personal sobre el terreno en EMEA, APAC y América. iberix envía ingenieros verificados y asegurados con una sola ruta de escalación responsable — por incidente o retenido, 24/7.",
+      en: "Break-fix and proactive field support with boots on the ground across EMEA, APAC and the Americas. iberix dispatches vetted, insured engineers with a single accountable escalation path, per-incident or retained, 24/7.",
+      es: "Soporte reactivo y proactivo con personal sobre el terreno en EMEA, APAC y América. iberix envía ingenieros verificados y asegurados con una sola ruta de escalación responsable, por incidente o retenido, 24/7.",
     },
     specs: [
       { k: { en: "Coverage", es: "Cobertura" }, v: { en: "EMEA / APAC / Americas", es: "EMEA / APAC / Américas" } },
@@ -124,12 +124,12 @@ export const SERVICES = [
     title: { en: "Dedicated Engineering Teams", es: "Equipos de ingeniería dedicados" },
     tagline: { en: "Your force, our accountability.", es: "Su fuerza, nuestra responsabilidad." },
     desc: {
-      en: "Dedicated, in-country engineering pods operating under your standards — managed, scaled and accounted for by iberix.",
-      es: "Equipos de ingeniería locales dedicados bajo sus estándares — gestionados, escalados y con responsabilidad de iberix.",
+      en: "Dedicated, in-country engineering pods operating under your standards, managed, scaled and accounted for by iberix.",
+      es: "Equipos de ingeniería locales dedicados bajo sus estándares, gestionados, escalados y con responsabilidad de iberix.",
     },
     overview: {
-      en: "Dedicated, in-country engineering pods operating under your standards — managed, scaled and accounted for by iberix. From a single embedded engineer to a 50+ team, you get one SPOC, full governance and the ability to scale up or down on demand.",
-      es: "Equipos de ingeniería locales dedicados operando bajo sus estándares — gestionados, escalados y con responsabilidad de iberix. Desde un único ingeniero embebido hasta un equipo de más de 50, obtiene un único interlocutor, gobernanza total y capacidad de escalar bajo demanda.",
+      en: "Dedicated, in-country engineering pods operating under your standards, managed, scaled and accounted for by iberix. From a single embedded engineer to a 50+ team, you get one SPOC, full governance and the ability to scale up or down on demand.",
+      es: "Equipos de ingeniería locales dedicados operando bajo sus estándares, gestionados, escalados y con responsabilidad de iberix. Desde un único ingeniero embebido hasta un equipo de más de 50, obtiene un único interlocutor, gobernanza total y capacidad de escalar bajo demanda.",
     },
     specs: [
       { k: { en: "Model", es: "Modelo" }, v: { en: "Embedded / managed", es: "Embebido / gestionado" } },
