@@ -81,6 +81,8 @@ export const STRINGS = {
     "f.rights": "© {year} iberix global. All rights reserved.",
     "f.privacy": "Privacy",
     "f.terms": "Terms",
+    "f.registeredOffice": "Registered Office",
+    "f.legalName": "Iberix Global Ltd. Registered with Companies House (UK)",
 
     "sys.system": "System",
     "sys.close": "Close",
@@ -178,6 +180,8 @@ export const STRINGS = {
     "f.rights": "© {year} iberix global. Todos los derechos reservados.",
     "f.privacy": "Privacidad",
     "f.terms": "Términos",
+    "f.registeredOffice": "Domicilio social",
+    "f.legalName": "Iberix Global Ltd. Registrada en Companies House (UK)",
 
     "sys.system": "Sistema",
     "sys.close": "Cerrar",

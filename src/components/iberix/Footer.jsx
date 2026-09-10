@@ -34,6 +34,15 @@ export default function Footer() {
               {t("common.initialize")}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
+
+            <div className="mt-10 pt-6 border-t border-white/10 max-w-xs">
+              <span className="eyebrow text-subtle">{t("f.registeredOffice")}</span>
+              <p className="mt-3 text-subtle text-sm leading-relaxed">
+                Office 674, 18 Young St, UNIT LGE<br />
+                Edinburgh, EH2 4JB, Scotland
+              </p>
+              <p className="mt-3 eyebrow text-subtle/70 leading-relaxed">{t("f.legalName")}</p>
+            </div>
           </div>
 
           <div className="col-span-12 md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
