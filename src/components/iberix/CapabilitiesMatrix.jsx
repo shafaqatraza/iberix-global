@@ -1,65 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
-
-const SERVICES = [
-  {
-    id: "datacentre",
-    index: "02",
-    title: "Data Centre Deployment",
-    tagline: "Rack, stack and commission at scale.",
-    image: "https://media.base44.com/images/public/6aa29ba3af67530c8741feb5/d511ece48_generated_e23d89db.jpg",
-    specs: [
-      { k: "Discipline", v: "Civil, Mechanical, Electrical" },
-      { k: "Scope", v: "Greenfield & retrofit" },
-      { k: "SLA", v: "Commissioning sign-off" },
-    ],
-    desc: "Full lifecycle data centre build — from power and cooling commissioning to rack-level infrastructure and structured cabling.",
-    span: "md:col-span-7",
-  },
-  {
-    id: "network",
-    index: "03",
-    title: "Network Deployment",
-    tagline: "Edge to core, across borders.",
-    image: "https://media.base44.com/images/public/6aa29ba3af67530c8741feb5/6455a70d6_generated_b67c6955.jpg",
-    specs: [
-      { k: "Layer", v: "L1–L3 field engineering" },
-      { k: "Footprint", v: "Multi-country rollouts" },
-      { k: "Turnaround", v: "Site-ready in 72h" },
-    ],
-    desc: "Cross-border network rollouts — fibre splicing, patching, RAN and transport activation with documented handover.",
-    span: "md:col-span-5",
-  },
-  {
-    id: "field",
-    index: "04",
-    title: "Field Support",
-    tagline: "Boots on the ground, on call.",
-    image: "https://media.base44.com/images/public/6aa29ba3af67530c8741feb5/3cd71edaf_generated_f79545e1.jpg",
-    specs: [
-      { k: "Coverage", v: "EMEA / APAC / Americas" },
-      { k: "Response", v: "4-hour on-site" },
-      { k: "Model", v: "Per-incident or retained" },
-    ],
-    desc: "Break-fix and proactive field support — dispatch, diagnose and resolve on-site with a single accountable escalation path.",
-    span: "md:col-span-5",
-  },
-  {
-    id: "dedicated",
-    index: "05",
-    title: "Dedicated Engineering Teams",
-    tagline: "Your force, our accountability.",
-    image: "https://media.base44.com/images/public/6aa29ba3af67530c8741feb5/ce9b6bc0a_generated_8c8e82bd.jpg",
-    specs: [
-      { k: "Model", v: "Embedded / managed" },
-      { k: "Sizing", v: "1 to 50+ engineers" },
-      { k: "Governance", v: "Single SPOC" },
-    ],
-    desc: "Dedicated, in-country engineering pods operating under your standards — managed, scaled and accounted for by iberix.",
-    span: "md:col-span-7",
-  },
-];
+import { SERVICES } from "@/data/services";
 
 function ServiceTile({ service, visible }) {
   const [hovered, setHovered] = useState(false);
@@ -117,14 +60,17 @@ function ServiceTile({ service, visible }) {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center gap-2 eyebrow text-brand">
+        <Link
+          to={`/services/${service.id}`}
+          className="mt-6 inline-flex items-center gap-2 eyebrow text-brand hover:text-brand-deep transition-colors"
+        >
           View spec sheet
           <ArrowUpRight
             className={`h-4 w-4 transition-transform duration-500 ${
               hovered ? "-translate-y-0.5 translate-x-0.5" : ""
             }`}
           />
-        </div>
+        </Link>
       </div>
     </div>
   );
