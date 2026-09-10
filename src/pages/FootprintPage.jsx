@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import PageHeader from "@/components/iberix/PageHeader";
 import GlobalFootprint from "@/components/iberix/GlobalFootprint";
+import ClientLogos from "@/components/iberix/ClientLogos";
 import Footer from "@/components/iberix/Footer";
 import { REGIONS_DATA } from "@/data/regions";
 import { useReveal } from "@/hooks/useReveal";
@@ -55,6 +56,9 @@ export default function FootprintPage() {
           </div>
         </div>
       </section>
+
+      {/* Client logos */}
+      <ClientLogos />
 
       {/* CTA */}
       <section className="bg-ink px-6 md:px-12 py-20 md:py-28">

@@ -124,6 +124,15 @@ export const STRINGS = {
     "fp.ready": "Deploy across zones?",
     "fp.readyP": "One accountable partner for multi-country rollouts. Share your scope to begin.",
 
+    "clients.eyebrow": "Trusted Delivery",
+    "clients.h2": "Engineers who have delivered at.",
+    "clients.intro": "Our field engineers have deployed, commissioned and supported infrastructure for some of the world's most demanding operators.",
+    "clients.catTech": "Technology",
+    "clients.catFinance": "Financial Services",
+    "clients.catLife": "Life Sciences & Healthcare",
+    "clients.catIndustry": "Industry & Retail",
+    "clients.note": "Engagements delivered by iberix engineers, directly or as part of partner programmes.",
+
     "acp.eyebrow": "04 / Accountability",
     "acp.title": "Accountability.",
     "acp.tagline": "One single point of contact. Documented handover. Engineers vetted, insured and accountable to your SLAs.",
@@ -275,6 +284,15 @@ export const STRINGS = {
     "fp.zones": "Resumen por zona",
     "fp.ready": "¿Despliegues en varias zonas?",
     "fp.readyP": "Un socio responsable para despliegues en varios países. Comparte tu alcance para empezar.",
+
+    "clients.eyebrow": "Entrega de confianza",
+    "clients.h2": "Ingenieros que han entregado en.",
+    "clients.intro": "Nuestros ingenieros de campo han desplegado, puesto en marcha y dado soporte a infraestructura para operadores de los más exigentes del mundo.",
+    "clients.catTech": "Tecnología",
+    "clients.catFinance": "Servicios financieros",
+    "clients.catLife": "Ciencias de la vida y salud",
+    "clients.catIndustry": "Industria y retail",
+    "clients.note": "Colaboraciones entregadas por ingenieros de iberix, directamente o en programas de socios.",
 
     "acp.eyebrow": "04 / Responsabilidad",
     "acp.title": "Responsabilidad.",
