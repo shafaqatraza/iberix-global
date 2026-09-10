@@ -35,7 +35,7 @@ export default function ServiceSpec() {
           <img src={service.image} alt="" aria-hidden="true" className="h-full w-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-ink/75" />
         </div>
-        <div className="relative z-10">
+        <div className="relative z-30">
           <header className="flex items-center justify-between px-6 md:px-12 py-6">
             <Link to="/"><Logo variant="light" className="text-xl" /></Link>
             <div className="flex items-center gap-6">

@@ -73,7 +73,7 @@ export default function Hero() {
 
       <WireframeGlobe />
 
-      <div className="relative z-10">
+      <div className="relative z-30">
         <header className="flex items-center justify-between px-6 md:px-12 py-6">
           <Logo variant="light" className="text-xl" />
           <div className="flex items-center gap-6">
