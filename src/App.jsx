@@ -9,6 +9,11 @@ import ScrollToTop from './components/ScrollToTop';
 import { RegionProvider } from '@/i18n/RegionContext';
 import Home from './pages/Home';
 import ServiceSpec from './pages/ServiceSpec';
+import RegionPage from './pages/RegionPage';
+import FootprintPage from './pages/FootprintPage';
+import AccountabilityPage from './pages/AccountabilityPage';
+import PartnershipPage from './pages/PartnershipPage';
+import LegalPage from './pages/LegalPage';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -40,6 +45,12 @@ const AuthenticatedApp = () => {
       {/* Add your page Route elements here */}
       <Route path="/" element={<Home />} />
       <Route path="/services/:id" element={<ServiceSpec />} />
+      <Route path="/regions/:id" element={<RegionPage />} />
+      <Route path="/footprint" element={<FootprintPage />} />
+      <Route path="/accountability" element={<AccountabilityPage />} />
+      <Route path="/partnership" element={<PartnershipPage />} />
+      <Route path="/privacy" element={<LegalPage doc="privacy" />} />
+      <Route path="/terms" element={<LegalPage doc="terms" />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

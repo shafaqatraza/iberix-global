@@ -7,7 +7,7 @@ import { useRegion } from "@/i18n/RegionContext";
 
 const REGIONS = ["EMEA", "APAC", "Americas", "Global"];
 
-export default function AccountabilityModule() {
+export default function AccountabilityModule({ showHeader = true }) {
   const [ref, visible] = useReveal();
   const { lang, t } = useRegion();
   const L = (v) => v[lang];
@@ -45,24 +45,26 @@ export default function AccountabilityModule() {
   return (
     <section ref={ref} id="accountability" className="relative bg-paper px-6 md:px-12 py-28 md:py-40">
       <div className="max-w-[1600px] mx-auto">
-        <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
-          <div className="col-span-12 md:col-span-2">
-            <span className={`scan-init ${visible ? "is-visible" : ""} eyebrow text-brand`}>
-              {t("acc.eyebrow")}
-            </span>
+        {showHeader && (
+          <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
+            <div className="col-span-12 md:col-span-2">
+              <span className={`scan-init ${visible ? "is-visible" : ""} eyebrow text-brand`}>
+                {t("acc.eyebrow")}
+              </span>
+            </div>
+            <div className="col-span-12 md:col-span-10">
+              <h2
+                className={`scan-init ${visible ? "is-visible" : ""} font-heading font-medium tracking-tight-display text-ink leading-[1.05]`}
+                style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)" }}
+              >
+                {t("acc.h2")}
+              </h2>
+              <p className="mt-6 text-body text-lg max-w-2xl leading-[1.6]">
+                {t("acc.intro")}
+              </p>
+            </div>
           </div>
-          <div className="col-span-12 md:col-span-10">
-            <h2
-              className={`scan-init ${visible ? "is-visible" : ""} font-heading font-medium tracking-tight-display text-ink leading-[1.05]`}
-              style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)" }}
-            >
-              {t("acc.h2")}
-            </h2>
-            <p className="mt-6 text-body text-lg max-w-2xl leading-[1.6]">
-              {t("acc.intro")}
-            </p>
-          </div>
-        </div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 bg-offwhite rounded-lg p-8 md:p-12 shadow-soft">

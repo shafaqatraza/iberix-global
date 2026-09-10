@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import Logo from "./Logo";
 import RegionSwitcher from "./RegionSwitcher";
@@ -21,22 +22,23 @@ export default function SystemMenu() {
   const NAV = [
     {
       group: t("sys.groupServices"),
-      items: SERVICES.map((s) => ({ label: L(s.title), href: "#capabilities" })),
+      items: SERVICES.map((s) => ({ label: L(s.title), href: `/services/${s.id}` })),
     },
     {
       group: t("sys.groupRegions"),
       items: [
-        { label: "EMEA", href: "#footprint" },
-        { label: "APAC", href: "#footprint" },
-        { label: "Americas", href: "#footprint" },
+        { label: "EMEA", href: "/regions/emea" },
+        { label: "APAC", href: "/regions/apac" },
+        { label: "Americas", href: "/regions/americas" },
+        { label: t("f.globalCoord"), href: "/regions/global" },
       ],
     },
     {
       group: t("sys.groupCompany"),
       items: [
-        { label: t("f.footprint"), href: "#footprint" },
-        { label: t("f.accountability"), href: "#accountability" },
-        { label: t("common.initialize"), href: "#accountability" },
+        { label: t("f.footprint"), href: "/footprint" },
+        { label: t("f.accountability"), href: "/accountability" },
+        { label: t("f.partnership"), href: "/partnership" },
       ],
     },
   ];
@@ -82,8 +84,8 @@ export default function SystemMenu() {
                   <ul className="flex flex-col gap-1">
                     {section.items.map((item, i) => (
                       <li key={item.label}>
-                        <a
-                          href={item.href}
+                        <Link
+                          to={item.href}
                           onClick={() => setOpen(false)}
                           className="group flex items-baseline gap-3 py-2 font-heading font-medium tracking-tight-display text-paper/70 hover:text-paper transition-colors"
                           style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)" }}
@@ -92,7 +94,7 @@ export default function SystemMenu() {
                             0{i + 1}
                           </span>
                           {item.label}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>

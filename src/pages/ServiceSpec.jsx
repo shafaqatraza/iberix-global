@@ -58,7 +58,7 @@ export default function ServiceSpec() {
           <p className="mt-6 text-subtle text-xl md:text-2xl max-w-2xl leading-[1.5]">{L(service.tagline)}</p>
           <p className="mt-8 text-body text-lg max-w-2xl leading-[1.7]">{L(service.overview)}</p>
           <Link
-            to="/#accountability"
+            to="/partnership"
             className="group mt-10 inline-flex items-center gap-3 bg-brand text-paper rounded-full px-7 py-4 eyebrow font-semibold hover:shadow-[0_10px_36px_-10px_rgba(29,158,117,0.6)] transition-shadow"
           >
             {t("common.initialize")}
@@ -178,7 +178,7 @@ export default function ServiceSpec() {
             </p>
           </div>
           <Link
-            to="/#accountability"
+            to="/partnership"
             className="group inline-flex items-center gap-3 bg-brand text-paper rounded-full px-8 py-4 eyebrow font-semibold hover:shadow-[0_10px_36px_-10px_rgba(29,158,117,0.6)] transition-shadow shrink-0"
           >
             {t("common.initialize")}

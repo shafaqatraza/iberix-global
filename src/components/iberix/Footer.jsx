@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Logo from "./Logo";
 import { useRegion } from "@/i18n/RegionContext";
@@ -7,9 +8,18 @@ export default function Footer() {
   const { lang, t } = useRegion();
   const L = (v) => v[lang];
 
-  const serviceLinks = SERVICES.map((s) => L(s.title));
-  const regionLinks = ["EMEA", "APAC", "Americas", t("f.globalCoord")];
-  const companyLinks = [t("f.footprint"), t("f.accountability"), t("f.partnership")];
+  const serviceLinks = SERVICES.map((s) => ({ label: L(s.title), to: `/services/${s.id}` }));
+  const regionLinks = [
+    { label: "EMEA", to: "/regions/emea" },
+    { label: "APAC", to: "/regions/apac" },
+    { label: "Americas", to: "/regions/americas" },
+    { label: t("f.globalCoord"), to: "/regions/global" },
+  ];
+  const companyLinks = [
+    { label: t("f.footprint"), to: "/footprint" },
+    { label: t("f.accountability"), to: "/accountability" },
+    { label: t("f.partnership"), to: "/partnership" },
+  ];
 
   const cols = [
     { title: t("f.colServices"), links: serviceLinks },
@@ -27,13 +37,13 @@ export default function Footer() {
             <p className="mt-6 text-subtle text-lg leading-[1.6] max-w-md">
               {t("f.desc")}
             </p>
-            <a
-              href="#accountability"
+            <Link
+              to="/partnership"
               className="group mt-8 inline-flex items-center gap-3 eyebrow text-brand-light hover:text-paper transition-colors"
             >
               {t("common.initialize")}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            </Link>
 
             <div className="mt-10 pt-6 border-t border-white/10 max-w-xs">
               <span className="eyebrow text-subtle">{t("f.registeredOffice")}</span>
@@ -51,10 +61,10 @@ export default function Footer() {
                 <span className="eyebrow text-subtle mb-5">{c.title}</span>
                 <ul className="flex flex-col gap-3">
                   {c.links.map((l) => (
-                    <li key={l}>
-                      <a href="#accountability" className="text-subtle hover:text-brand-light transition-colors text-base">
-                        {l}
-                      </a>
+                    <li key={l.label}>
+                      <Link to={l.to} className="text-subtle hover:text-brand-light transition-colors text-base">
+                        {l.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -68,8 +78,8 @@ export default function Footer() {
             {t("f.rights", { year: new Date().getFullYear() })}
           </span>
           <div className="flex items-center gap-6 eyebrow text-subtle">
-            <a href="#top" className="hover:text-brand-light transition-colors">{t("f.privacy")}</a>
-            <a href="#top" className="hover:text-brand-light transition-colors">{t("f.terms")}</a>
+            <Link to="/privacy" className="hover:text-brand-light transition-colors">{t("f.privacy")}</Link>
+            <Link to="/terms" className="hover:text-brand-light transition-colors">{t("f.terms")}</Link>
             <span>Command Center v1.0</span>
           </div>
         </div>
