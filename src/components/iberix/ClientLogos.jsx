@@ -2,7 +2,7 @@ import { useReveal } from "@/hooks/useReveal";
 import { useRegion } from "@/i18n/RegionContext";
 
 const CATEGORIES = [
-  { key: "clients.catTech", members: ["Microsoft", "Google", "Siemens"] },
+  { key: "clients.catTech", members: ["Microsoft", "Google", "Nokia", "Siemens"] },
   { key: "clients.catFinance", members: ["Santander Bank", "Barclays", "BlackRock", "PayPal", "TF Bank"] },
   { key: "clients.catLife", members: ["Roche", "Cencora", "Abbott"] },
   { key: "clients.catGov", members: ["Qatar Embassy"] },
