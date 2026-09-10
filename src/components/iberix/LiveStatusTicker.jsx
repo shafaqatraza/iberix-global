@@ -4,7 +4,6 @@ import { useRegion } from "@/i18n/RegionContext";
 const REGIONS = [
   { label: "London", tz: "Europe/London" },
   { label: "Dubai", tz: "Asia/Dubai" },
-  { label: "Singapore", tz: "Asia/Singapore" },
   { label: "New York", tz: "America/New_York" },
 ];
 
