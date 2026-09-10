@@ -4,8 +4,9 @@ import { useRegion } from "@/i18n/RegionContext";
 const CATEGORIES = [
   { key: "clients.catTech", members: ["Microsoft", "Google", "Siemens"] },
   { key: "clients.catFinance", members: ["Santander Bank", "Barclays", "BlackRock", "PayPal", "TF Bank"] },
-  { key: "clients.catLife", members: ["Roche", "Cencora"] },
-  { key: "clients.catIndustry", members: ["Mercedes-Benz", "Primark"] },
+  { key: "clients.catLife", members: ["Roche", "Cencora", "Abbott"] },
+  { key: "clients.catGov", members: ["Qatar Embassy"] },
+  { key: "clients.catIndustry", members: ["Mercedes-Benz", "Primark", "BM Supermercado"] },
 ];
 
 export default function ClientLogos() {

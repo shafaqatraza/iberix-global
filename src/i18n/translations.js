@@ -130,6 +130,7 @@ export const STRINGS = {
     "clients.catTech": "Technology",
     "clients.catFinance": "Financial Services",
     "clients.catLife": "Life Sciences & Healthcare",
+    "clients.catGov": "Government & Public Sector",
     "clients.catIndustry": "Industry & Retail",
     "clients.note": "Engagements delivered by iberix engineers, directly or as part of partner programmes.",
 
@@ -291,6 +292,7 @@ export const STRINGS = {
     "clients.catTech": "Tecnología",
     "clients.catFinance": "Servicios financieros",
     "clients.catLife": "Ciencias de la vida y salud",
+    "clients.catGov": "Gobierno y sector público",
     "clients.catIndustry": "Industria y retail",
     "clients.note": "Colaboraciones entregadas por ingenieros de iberix, directamente o en programas de socios.",
 
