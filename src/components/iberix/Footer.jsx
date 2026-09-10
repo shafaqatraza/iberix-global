@@ -1,22 +1,22 @@
 import { ArrowUpRight } from "lucide-react";
 import Logo from "./Logo";
-
-const COLS = [
-  {
-    title: "Services",
-    links: ["Data Centre Deployment", "Network Deployment", "Field Support", "Dedicated Engineering Teams"],
-  },
-  {
-    title: "Regions",
-    links: ["EMEA", "APAC", "Americas", "Global Coordination"],
-  },
-  {
-    title: "Company",
-    links: ["Global Footprint", "Accountability", "Partnership", "Command Center"],
-  },
-];
+import { useRegion } from "@/i18n/RegionContext";
+import { SERVICES } from "@/data/services";
 
 export default function Footer() {
+  const { lang, t } = useRegion();
+  const L = (v) => v[lang];
+
+  const serviceLinks = SERVICES.map((s) => L(s.title));
+  const regionLinks = ["EMEA", "APAC", "Americas", t("f.globalCoord")];
+  const companyLinks = [t("f.footprint"), t("f.accountability"), t("f.partnership")];
+
+  const cols = [
+    { title: t("f.colServices"), links: serviceLinks },
+    { title: t("f.colRegions"), links: regionLinks },
+    { title: t("f.colCompany"), links: companyLinks },
+  ];
+
   return (
     <footer className="relative bg-ink">
       <div className="h-px w-full bg-white/10" />
@@ -25,20 +25,19 @@ export default function Footer() {
           <div className="col-span-12 md:col-span-5">
             <Logo variant="light" className="text-2xl" />
             <p className="mt-6 text-subtle text-lg leading-[1.6] max-w-md">
-              IT infrastructure services and technical workforce. One accountable
-              partner for on-site engineering across borders.
+              {t("f.desc")}
             </p>
             <a
               href="#accountability"
               className="group mt-8 inline-flex items-center gap-3 eyebrow text-brand-light hover:text-paper transition-colors"
             >
-              Initialize Partnership
+              {t("common.initialize")}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
 
           <div className="col-span-12 md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
-            {COLS.map((c) => (
+            {cols.map((c) => (
               <div key={c.title} className="flex flex-col">
                 <span className="eyebrow text-subtle mb-5">{c.title}</span>
                 <ul className="flex flex-col gap-3">
@@ -57,11 +56,11 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <span className="eyebrow text-subtle">
-            © {new Date().getFullYear()} iberix global. All rights reserved.
+            {t("f.rights", { year: new Date().getFullYear() })}
           </span>
           <div className="flex items-center gap-6 eyebrow text-subtle">
-            <a href="#top" className="hover:text-brand-light transition-colors">Privacy</a>
-            <a href="#top" className="hover:text-brand-light transition-colors">Terms</a>
+            <a href="#top" className="hover:text-brand-light transition-colors">{t("f.privacy")}</a>
+            <a href="#top" className="hover:text-brand-light transition-colors">{t("f.terms")}</a>
             <span>Command Center v1.0</span>
           </div>
         </div>

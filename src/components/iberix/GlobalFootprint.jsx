@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { useRegion } from "@/i18n/RegionContext";
 
 const ZONES = [
   {
@@ -9,7 +10,10 @@ const ZONES = [
     teams: 480,
     countries: 18,
     active: 12,
-    note: "Primary delivery hub. London & Frankfurt operations centres.",
+    note: {
+      en: "Primary delivery hub. London & Frankfurt operations centres.",
+      es: "Centro de entrega principal. Centros de operaciones en Londres y Frankfurt.",
+    },
   },
   {
     id: "apac",
@@ -18,7 +22,10 @@ const ZONES = [
     teams: 360,
     countries: 11,
     active: 8,
-    note: "Singapore coordination node. High-growth network rollout zone.",
+    note: {
+      en: "Singapore coordination node. High-growth network rollout zone.",
+      es: "Nodo de coordinación en Singapur. Zona de despliegue de red de alto crecimiento.",
+    },
   },
   {
     id: "americas",
@@ -27,7 +34,10 @@ const ZONES = [
     teams: 290,
     countries: 9,
     active: 6,
-    note: "New York dispatch. Data centre commissioning at scale.",
+    note: {
+      en: "New York dispatch. Data centre commissioning at scale.",
+      es: "Dispatch desde Nueva York. Puesta en marcha de centros de datos a escala.",
+    },
   },
 ];
 
@@ -42,7 +52,15 @@ const DOTS = [
 export default function GlobalFootprint() {
   const [ref, visible] = useReveal();
   const [active, setActive] = useState("emea");
+  const { lang, t } = useRegion();
+  const L = (v) => v[lang];
   const zone = ZONES.find((z) => z.id === active);
+
+  const stats = [
+    { k: zone.teams, v: t("foot.statEng") },
+    { k: zone.countries, v: t("foot.statCountries") },
+    { k: zone.active, v: t("foot.statLive") },
+  ];
 
   return (
     <section ref={ref} id="footprint" className="relative bg-ink px-6 md:px-12 py-28 md:py-40">
@@ -50,7 +68,7 @@ export default function GlobalFootprint() {
         <div className="grid grid-cols-12 gap-6 mb-16 md:mb-24">
           <div className="col-span-12 md:col-span-2">
             <span className={`scan-init ${visible ? "is-visible" : ""} eyebrow text-brand-light`}>
-              03 / Footprint
+              {t("foot.eyebrow")}
             </span>
           </div>
           <div className="col-span-12 md:col-span-10">
@@ -58,7 +76,7 @@ export default function GlobalFootprint() {
               className={`scan-init ${visible ? "is-visible" : ""} font-heading font-medium tracking-tight-display text-paper leading-[1.05]`}
               style={{ fontSize: "clamp(2.25rem, 5vw, 4.5rem)" }}
             >
-              Wherever the work happens.
+              {t("foot.h2")}
             </h2>
           </div>
         </div>
@@ -127,18 +145,14 @@ export default function GlobalFootprint() {
           </div>
 
           <div className="lg:col-span-4 bg-ink-soft rounded-lg p-8 md:p-10 flex flex-col">
-            <span className="eyebrow text-brand-light">Deployment Snapshot</span>
+            <span className="eyebrow text-brand-light">{t("foot.snapshot")}</span>
             <h3 className="mt-3 font-heading text-3xl md:text-4xl font-medium tracking-tight-display text-paper">
               {zone.label}
             </h3>
-            <p className="mt-4 text-subtle text-base leading-[1.6]">{zone.note}</p>
+            <p className="mt-4 text-subtle text-base leading-[1.6]">{L(zone.note)}</p>
 
             <div className="mt-8 flex flex-col gap-3">
-              {[
-                { k: zone.teams, v: "Engineers Active" },
-                { k: zone.countries, v: "Countries Covered" },
-                { k: zone.active, v: "Live Deployments" },
-              ].map((stat) => (
+              {stats.map((stat) => (
                 <div key={stat.v} className="flex items-baseline justify-between rounded-md bg-ink/40 px-5 py-4">
                   <span className="font-heading text-3xl font-medium tracking-tight-display text-paper tabular-nums">
                     {stat.k}
@@ -151,7 +165,7 @@ export default function GlobalFootprint() {
             <div className="mt-auto pt-8">
               <div className="h-px w-full bg-white/10" />
               <span className="block mt-4 eyebrow text-subtle">
-                Real-time coordination across {ZONES.length} zones
+                {t("foot.coord", { n: ZONES.length })}
               </span>
             </div>
           </div>

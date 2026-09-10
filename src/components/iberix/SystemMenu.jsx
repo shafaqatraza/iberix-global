@@ -2,37 +2,14 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import Logo from "./Logo";
-
-const NAV = [
-  {
-    group: "Services",
-    items: [
-      { label: "Data Centre Deployment", href: "#capabilities" },
-      { label: "Network Deployment", href: "#capabilities" },
-      { label: "Field Support", href: "#capabilities" },
-      { label: "Dedicated Engineering Teams", href: "#capabilities" },
-    ],
-  },
-  {
-    group: "Regions",
-    items: [
-      { label: "EMEA", href: "#footprint" },
-      { label: "APAC", href: "#footprint" },
-      { label: "Americas", href: "#footprint" },
-    ],
-  },
-  {
-    group: "Company",
-    items: [
-      { label: "Global Footprint", href: "#footprint" },
-      { label: "Accountability", href: "#accountability" },
-      { label: "Initialize Partnership", href: "#accountability" },
-    ],
-  },
-];
+import RegionSwitcher from "./RegionSwitcher";
+import { useRegion } from "@/i18n/RegionContext";
+import { SERVICES } from "@/data/services";
 
 export default function SystemMenu() {
   const [open, setOpen] = useState(false);
+  const { lang, t } = useRegion();
+  const L = (v) => v[lang];
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -40,6 +17,29 @@ export default function SystemMenu() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const NAV = [
+    {
+      group: t("sys.groupServices"),
+      items: SERVICES.map((s) => ({ label: L(s.title), href: "#capabilities" })),
+    },
+    {
+      group: t("sys.groupRegions"),
+      items: [
+        { label: "EMEA", href: "#footprint" },
+        { label: "APAC", href: "#footprint" },
+        { label: "Americas", href: "#footprint" },
+      ],
+    },
+    {
+      group: t("sys.groupCompany"),
+      items: [
+        { label: t("f.footprint"), href: "#footprint" },
+        { label: t("f.accountability"), href: "#accountability" },
+        { label: t("common.initialize"), href: "#accountability" },
+      ],
+    },
+  ];
 
   return (
     <>
@@ -52,7 +52,7 @@ export default function SystemMenu() {
           <span className="block h-px w-5 bg-current transition-all group-hover:w-6" />
           <span className="block h-px w-5 bg-current transition-all group-hover:w-6" />
         </span>
-        System
+        {t("sys.system")}
       </button>
 
       {open && createPortal(
@@ -60,14 +60,17 @@ export default function SystemMenu() {
           <div className="h-px w-full bg-white/10" />
           <div className="flex items-center justify-between px-6 md:px-12 py-6">
             <Logo variant="light" className="text-xl" />
-            <button
-              onClick={() => setOpen(false)}
-              className="flex items-center gap-3 eyebrow text-paper/80 hover:text-brand-light transition-colors"
-              aria-label="Close system menu"
-            >
-              Close
-              <X className="h-4 w-4" />
-            </button>
+            <div className="flex items-center gap-6">
+              <RegionSwitcher variant="light" />
+              <button
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 eyebrow text-paper/80 hover:text-brand-light transition-colors"
+                aria-label="Close system menu"
+              >
+                {t("sys.close")}
+                <X className="h-4 w-4" />
+              </button>
+            </div>
           </div>
           <div className="h-px w-full bg-white/10" />
 
@@ -101,7 +104,7 @@ export default function SystemMenu() {
           <div className="h-px w-full bg-white/10" />
           <div className="px-6 md:px-12 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <span className="eyebrow text-subtle">
-              One Accountable Partner — Wherever the Work Happens
+              {t("sys.tagline")}
             </span>
             <span className="eyebrow text-subtle">iberix / Command Center</span>
           </div>

@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
+import { useRegion } from "@/i18n/RegionContext";
 
 const STEPS = [
-  { id: "top", label: "Command" },
-  { id: "capabilities", label: "Capabilities" },
-  { id: "footprint", label: "Footprint" },
-  { id: "accountability", label: "Partnership" },
+  { id: "top", key: "command" },
+  { id: "capabilities", key: "capabilities" },
+  { id: "footprint", key: "footprint" },
+  { id: "accountability", key: "partnership" },
 ];
 
 export default function AccountabilityBar() {
   const [active, setActive] = useState("top");
   const [hidden, setHidden] = useState(false);
+  const { t } = useRegion();
 
   useEffect(() => {
     const onScroll = () => {
@@ -42,14 +44,14 @@ export default function AccountabilityBar() {
       <div className="bg-ink/95 backdrop-blur-md border-t border-white/10">
         <div className="px-6 md:px-12 py-3 flex items-center justify-between gap-6">
           <div className="hidden md:flex items-center gap-4 flex-1 max-w-md">
-            <span className="eyebrow text-subtle whitespace-nowrap">Journey</span>
+            <span className="eyebrow text-subtle whitespace-nowrap">{t("bar.journey")}</span>
             <div className="relative flex-1 h-px bg-white/10">
               <div
                 className="absolute left-0 top-0 h-px bg-brand-light transition-all duration-500"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="eyebrow text-brand-light whitespace-nowrap">{active}</span>
+            <span className="eyebrow text-brand-light whitespace-nowrap">{t(`bar.${active === "top" ? "command" : STEPS.find((s) => s.id === active)?.key || "command"}`)}</span>
           </div>
 
           <div className="flex items-center gap-1 md:gap-2">
@@ -63,7 +65,7 @@ export default function AccountabilityBar() {
                     : "border-white/15 text-subtle hover:text-paper"
                 }`}
               >
-                {s.label}
+                {t(`bar.${s.key}`)}
               </a>
             ))}
           </div>
@@ -72,7 +74,7 @@ export default function AccountabilityBar() {
             href="#accountability"
             className="hidden lg:inline-flex items-center gap-2 bg-brand text-paper rounded-full px-5 py-2 eyebrow font-semibold hover:shadow-[0_8px_28px_-10px_rgba(29,158,117,0.6)] transition-shadow"
           >
-            Initialize →
+            {t("bar.initialize")}
           </a>
         </div>
       </div>

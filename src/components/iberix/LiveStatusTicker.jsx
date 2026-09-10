@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRegion } from "@/i18n/RegionContext";
 
 const REGIONS = [
   { label: "London", tz: "Europe/London" },
@@ -19,6 +20,7 @@ function timeFor(tz) {
 
 export default function LiveStatusTicker() {
   const [, setNow] = useState(Date.now());
+  const { t } = useRegion();
 
   useEffect(() => {
     const id = setInterval(() => setNow(Date.now()), 1000);
@@ -32,7 +34,7 @@ export default function LiveStatusTicker() {
           <span className="absolute inline-flex h-full w-full rounded-full bg-brand-light opacity-60 animate-pulse-brand" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-light" />
         </span>
-        Live
+        {t("hero.live")}
       </span>
       {REGIONS.map((r) => (
         <span key={r.label} className="flex items-center gap-2">

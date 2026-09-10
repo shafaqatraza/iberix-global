@@ -1,8 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 import LiveStatusTicker from "./LiveStatusTicker";
 import SystemMenuButton from "./SystemMenu";
+import RegionSwitcher from "./RegionSwitcher";
 import Logo from "./Logo";
 import { useReveal } from "@/hooks/useReveal";
+import { useRegion } from "@/i18n/RegionContext";
 
 const HUBS = [
   { x: 30, y: 38, label: "London" },
@@ -48,6 +50,14 @@ function WireframeGlobe() {
 
 export default function Hero() {
   const [ref, visible] = useReveal();
+  const { t } = useRegion();
+
+  const stats = [
+    { k: "40+", v: t("hero.stat1") },
+    { k: "1,200+", v: t("hero.stat2") },
+    { k: "24/7", v: t("hero.stat3") },
+    { k: "1", v: t("hero.stat4") },
+  ];
 
   return (
     <section ref={ref} id="top" className="relative min-h-screen w-full overflow-hidden bg-ink">
@@ -66,8 +76,9 @@ export default function Hero() {
       <div className="relative z-10">
         <header className="flex items-center justify-between px-6 md:px-12 py-6">
           <Logo variant="light" className="text-xl" />
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             <LiveStatusTicker />
+            <RegionSwitcher variant="light" />
             <SystemMenuButton />
           </div>
         </header>
@@ -78,7 +89,7 @@ export default function Hero() {
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-2">
             <span className={`scan-init ${visible ? "is-visible" : ""} eyebrow text-brand-light`}>
-              01 / Global Command
+              {t("hero.eyebrow")}
             </span>
           </div>
 
@@ -87,33 +98,31 @@ export default function Hero() {
               className={`scan-init ${visible ? "is-visible" : ""} font-heading font-medium tracking-tight-display text-paper leading-[0.98]`}
               style={{ fontSize: "clamp(2.75rem, 8.5vw, 8.5rem)" }}
             >
-              One accountable
+              {t("hero.h1L1")}
               <br />
-              partner, <span className="text-brand-light">wherever</span>
+              {t("hero.h1L2pre")}
+              <span className="text-brand-light">{t("hero.h1L2hi")}</span>
               <br />
-              the work happens.
+              {t("hero.h1L3")}
             </h1>
 
             <div className="mt-12 grid grid-cols-12 gap-6">
               <p className="col-span-12 md:col-span-6 text-subtle text-lg md:text-xl leading-[1.6] max-w-2xl">
-                iberix partners with system integrators, managed service
-                providers and telecom operators to deliver on-site engineering
-                across borders — from data centre and network deployments to
-                field support and dedicated engineering teams.
+                {t("hero.subhead")}
               </p>
               <div className="col-span-12 md:col-span-6 flex flex-col items-start md:items-end justify-end gap-5">
                 <a
                   href="#accountability"
                   className="group inline-flex items-center gap-3 bg-brand text-paper rounded-full px-7 py-4 eyebrow font-semibold hover:shadow-[0_10px_36px_-10px_rgba(29,158,117,0.6)] transition-shadow"
                 >
-                  Initialize Partnership
+                  {t("common.initialize")}
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
                   href="#capabilities"
                   className="eyebrow text-subtle hover:text-brand-light transition-colors"
                 >
-                  Survey Capabilities ↓
+                  {t("common.survey")}
                 </a>
               </div>
             </div>
@@ -121,12 +130,7 @@ export default function Hero() {
         </div>
 
         <div className="mt-24 md:mt-32 grid grid-cols-2 md:grid-cols-4 border-t border-white/10">
-          {[
-            { k: "40+", v: "Countries Deployed" },
-            { k: "1,200+", v: "Field Engineers" },
-            { k: "24/7", v: "Operations Coverage" },
-            { k: "1", v: "Accountable Partner" },
-          ].map((s, i) => (
+          {stats.map((s, i) => (
             <div
               key={s.v}
               className={`py-8 px-5 ${i < 3 ? "border-r border-white/10" : ""} ${i % 2 === 0 ? "border-b md:border-b-0 border-white/10" : ""}`}
@@ -144,7 +148,7 @@ export default function Hero() {
         <div className="h-px w-full bg-white/10" />
         <div className="px-6 md:px-12 py-4 flex items-center justify-between eyebrow text-subtle/70">
           <span>Lat 51.5074° N / Lon 0.1278° W</span>
-          <span className="hidden md:block">Scroll to initialize ↓</span>
+          <span className="hidden md:block">{t("common.scroll")}</span>
           <span>Command Center v1.0</span>
         </div>
       </div>
