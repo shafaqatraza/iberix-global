@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import Logo from "./Logo";
 
@@ -54,7 +55,7 @@ export default function SystemMenu() {
         System
       </button>
 
-      {open && (
+      {open && createPortal(
         <div className="fixed inset-0 z-[100] bg-ink flex flex-col">
           <div className="h-px w-full bg-white/10" />
           <div className="flex items-center justify-between px-6 md:px-12 py-6">
@@ -104,7 +105,8 @@ export default function SystemMenu() {
             </span>
             <span className="eyebrow text-subtle">iberix / Command Center</span>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
