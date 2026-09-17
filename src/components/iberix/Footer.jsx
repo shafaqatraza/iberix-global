@@ -51,6 +51,13 @@ export default function Footer() {
                 Office 674, 18 Young St, UNIT LGE<br />
                 Edinburgh, EH2 4JB, Scotland
               </p>
+              <a
+                href="tel:+447473950424"
+                className="mt-4 inline-flex items-center gap-2 text-subtle hover:text-brand-light transition-colors text-sm"
+              >
+                <span className="eyebrow text-subtle/70">{t("f.contact")}</span>
+                <span>{t("f.phone")}</span>
+              </a>
               <p className="mt-3 eyebrow text-subtle/70 leading-relaxed">{t("f.legalName")}</p>
             </div>
           </div>
