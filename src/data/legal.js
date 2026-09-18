@@ -10,8 +10,8 @@ export const LEGAL = {
       {
         title: { en: "Who we are", es: "Quiénes somos" },
         body: {
-          en: "Iberix Global Ltd., registered with Companies House (UK), provides IT infrastructure deployment, field support and dedicated engineering services across EMEA, APAC and the Americas. This policy explains how we handle personal data received through this website and our engagement process.",
-          es: "Iberix Global Ltd., registrada en Companies House (UK), ofrece servicios de despliegue de infraestructura TI, soporte de campo y equipos de ingeniería dedicados en EMEA, APAC y América. Esta política explica cómo tratamos los datos personales recibidos a través de este sitio y nuestro proceso de colaboración.",
+          en: "Iberix Global Ltd. (company number SC902201), registered with Companies House (UK), provides IT infrastructure deployment, field support and dedicated engineering services across EMEA, APAC and the Americas. This policy explains how we handle personal data received through this website and our engagement process.",
+          es: "Iberix Global Ltd. (número de empresa SC902201), registrada en Companies House (UK), ofrece servicios de despliegue de infraestructura TI, soporte de campo y equipos de ingeniería dedicados en EMEA, APAC y América. Esta política explica cómo tratamos los datos personales recibidos a través de este sitio y nuestro proceso de colaboración.",
         },
       },
       {
@@ -73,8 +73,8 @@ export const LEGAL = {
       {
         title: { en: "Contact", es: "Contacto" },
         body: {
-          en: "For privacy questions or requests, contact us at ops@iberix.global, or write to Iberix Global Ltd., Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
-          es: "Para consultas o solicitudes de privacidad, contacta con ops@iberix.global o escribe a Iberix Global Ltd., Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          en: "For privacy questions or requests, contact us at ops@iberix.global, or write to Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          es: "Para consultas o solicitudes de privacidad, contacta con ops@iberix.global o escribe a Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
         },
       },
     ],
@@ -167,8 +167,8 @@ export const LEGAL = {
       {
         title: { en: "Contact", es: "Contacto" },
         body: {
-          en: "For questions about these terms, contact ops@iberix.global, or write to Iberix Global Ltd., Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
-          es: "Para consultas sobre estos términos, contacta con ops@iberix.global o escribe a Iberix Global Ltd., Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          en: "For questions about these terms, contact ops@iberix.global, or write to Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          es: "Para consultas sobre estos términos, contacta con ops@iberix.global o escribe a Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
         },
       },
     ],
