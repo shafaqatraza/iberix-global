@@ -17,6 +17,7 @@ export default function Footer() {
   ];
   const companyLinks = [
     { label: t("f.footprint"), to: "/footprint" },
+    { label: t("f.coverage"), to: "/coverage" },
     { label: t("f.accountability"), to: "/accountability" },
     { label: t("f.partnership"), to: "/partnership" },
   ];

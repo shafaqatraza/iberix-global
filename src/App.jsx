@@ -14,6 +14,7 @@ import FootprintPage from './pages/FootprintPage';
 import AccountabilityPage from './pages/AccountabilityPage';
 import PartnershipPage from './pages/PartnershipPage';
 import LegalPage from './pages/LegalPage';
+import CoveragePage from './pages/CoveragePage';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -51,6 +52,7 @@ const AuthenticatedApp = () => {
       <Route path="/partnership" element={<PartnershipPage />} />
       <Route path="/privacy" element={<LegalPage doc="privacy" />} />
       <Route path="/terms" element={<LegalPage doc="terms" />} />
+      <Route path="/coverage" element={<CoveragePage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

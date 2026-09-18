@@ -37,6 +37,7 @@ export default function SystemMenu() {
       group: t("sys.groupCompany"),
       items: [
         { label: t("f.footprint"), href: "/footprint" },
+        { label: t("f.coverage"), href: "/coverage" },
         { label: t("f.accountability"), href: "/accountability" },
         { label: t("f.partnership"), href: "/partnership" },
       ],
