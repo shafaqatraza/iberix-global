@@ -88,7 +88,7 @@ export default function Footer() {
           <div className="flex items-center gap-6 eyebrow text-subtle">
             <Link to="/privacy" className="hover:text-brand-light transition-colors">{t("f.privacy")}</Link>
             <Link to="/terms" className="hover:text-brand-light transition-colors">{t("f.terms")}</Link>
-            <span>Command Center v1.0</span>
+            <span>Operations Hub v1.0</span>
           </div>
         </div>
       </div>

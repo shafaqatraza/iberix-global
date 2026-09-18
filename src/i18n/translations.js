@@ -10,7 +10,7 @@ export const STRINGS = {
     "common.survey": "Survey Capabilities ↓",
     "common.viewSpec": "View spec sheet",
     "common.scroll": "Scroll to initialize ↓",
-    "common.commandCenter": "Command Center",
+    "common.commandCenter": "Operations Hub",
     "common.return": "← Return to command center",
     "common.selectRegion": "Select region",
 
@@ -86,7 +86,7 @@ export const STRINGS = {
     "f.contact": "Contact",
     "f.phone": "+44 7473 950424",
 
-    "sys.system": "System",
+    "sys.system": "Operations",
     "sys.close": "Close",
     "sys.groupServices": "Services",
     "sys.groupRegions": "Regions",
@@ -199,7 +199,7 @@ export const STRINGS = {
     "common.survey": "Explorar capacidades ↓",
     "common.viewSpec": "Ver ficha técnica",
     "common.scroll": "Desplaza para iniciar ↓",
-    "common.commandCenter": "Centro de mando",
+    "common.commandCenter": "Centro de operaciones",
     "common.return": "← Volver al centro de mando",
     "common.selectRegion": "Selecciona región",
 
@@ -275,7 +275,7 @@ export const STRINGS = {
     "f.contact": "Contacto",
     "f.phone": "+44 7473 950424",
 
-    "sys.system": "Sistema",
+    "sys.system": "Operaciones",
     "sys.close": "Cerrar",
     "sys.groupServices": "Servicios",
     "sys.groupRegions": "Regiones",

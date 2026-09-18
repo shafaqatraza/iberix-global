@@ -109,7 +109,7 @@ export default function SystemMenu() {
             <span className="eyebrow text-subtle">
               {t("sys.tagline")}
             </span>
-            <span className="eyebrow text-subtle">iberix / Command Center</span>
+            <span className="eyebrow text-subtle">iberix / Operations Hub</span>
           </div>
         </div>,
         document.body
