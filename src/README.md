@@ -12,7 +12,7 @@ You don't need to know how to code. Just copy, paste, and run.
 
 ```bash
 git clone <your-repo-url>
-cd iberix-command
+cd iberix-global
 ```
 
 ### Step 2 — Run the deploy script
