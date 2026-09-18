@@ -84,6 +84,7 @@ export const STRINGS = {
     "f.registeredOffice": "Registered Office",
     "f.legalName": "Iberix Global Ltd. Registered with Companies House (UK), No. SC902201",
     "f.contact": "Contact",
+    "f.email": "info@iberix.global",
     "f.phone": "+44 7473 950424",
 
     "sys.system": "Operations",
@@ -273,6 +274,7 @@ export const STRINGS = {
     "f.registeredOffice": "Domicilio social",
     "f.legalName": "Iberix Global Ltd. Registrada en Companies House (UK), No. SC902201",
     "f.contact": "Contacto",
+    "f.email": "info@iberix.global",
     "f.phone": "+44 7473 950424",
 
     "sys.system": "Operaciones",

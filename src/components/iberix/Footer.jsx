@@ -59,6 +59,13 @@ export default function Footer() {
                 <span className="eyebrow text-subtle/70">{t("f.contact")}</span>
                 <span>{t("f.phone")}</span>
               </a>
+              <a
+                href="mailto:info@iberix.global"
+                className="inline-flex items-center gap-2 text-subtle hover:text-brand-light transition-colors text-sm"
+              >
+                <span className="eyebrow text-subtle/70">Email</span>
+                <span>{t("f.email")}</span>
+              </a>
               <p className="mt-3 eyebrow text-subtle/70 leading-relaxed">{t("f.legalName")}</p>
             </div>
           </div>
