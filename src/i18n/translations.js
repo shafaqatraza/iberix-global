@@ -22,7 +22,7 @@ export const STRINGS = {
     "hero.subhead": "iberix partners with system integrators, managed service providers and telecom operators to deliver on-site engineering across borders, from data centre and network deployments to field support and dedicated engineering teams.",
     "hero.stat1": "Countries Deployed",
     "hero.stat2": "Field Engineers",
-    "hero.stat3": "Operations Coverage",
+    "hero.stat3": "Cities Covered",
     "hero.stat4": "Accountable Partner",
     "hero.live": "Live",
 
@@ -35,8 +35,8 @@ export const STRINGS = {
     "foot.snapshot": "Deployment Snapshot",
     "foot.statEng": "Engineers Active",
     "foot.statCountries": "Countries Covered",
-    "foot.statLive": "Live Deployments",
-    "foot.coord": "Real-time coordination across {n} zones",
+    "foot.statLive": "Locations",
+    "foot.coord": "Real-time coordination across {n} regions",
 
     "acc.eyebrow": "04 / Accountability",
     "acc.h2": "Initialize partnership.",
@@ -121,7 +121,7 @@ export const STRINGS = {
 
     "fp.eyebrow": "03 / Footprint",
     "fp.title": "Global footprint.",
-    "fp.tagline": "One coordination layer across three zones, 38 countries and over 1,100 field engineers.",
+    "fp.tagline": "One coordination layer across 89 countries, 332 cities and over 2,100 field engineers.",
     "fp.overview": "iberix operates a single coordination layer spanning EMEA, APAC and the Americas. In-country engineering teams deliver under one accountable SPOC, with real-time dispatch and documented handover across every border.",
     "fp.zones": "Zone Snapshot",
     "fp.ready": "Deploy across zones?",
@@ -212,7 +212,7 @@ export const STRINGS = {
     "hero.subhead": "iberix colabora con integradores de sistemas, proveedores de servicios gestionados y operadores de telecomunicaciones para ofrecer ingeniería in situ entre fronteras, desde despliegues de centros de datos y red hasta soporte de campo y equipos de ingeniería dedicados.",
     "hero.stat1": "Países desplegados",
     "hero.stat2": "Ingenieros de campo",
-    "hero.stat3": "Cobertura operativa",
+    "hero.stat3": "Ciudades cubiertas",
     "hero.stat4": "Socio responsable",
     "hero.live": "En vivo",
 
@@ -225,8 +225,8 @@ export const STRINGS = {
     "foot.snapshot": "Resumen de despliegue",
     "foot.statEng": "Ingenieros activos",
     "foot.statCountries": "Países cubiertos",
-    "foot.statLive": "Despliegues activos",
-    "foot.coord": "Coordinación en tiempo real en {n} zonas",
+    "foot.statLive": "Ubicaciones",
+    "foot.coord": "Coordinación en tiempo real en {n} regiones",
 
     "acc.eyebrow": "04 / Responsabilidad",
     "acc.h2": "Inicia la colaboración.",
@@ -311,7 +311,7 @@ export const STRINGS = {
 
     "fp.eyebrow": "03 / Presencia",
     "fp.title": "Presencia global.",
-    "fp.tagline": "Una capa de coordinación en tres zonas, 38 países y más de 1.100 ingenieros de campo.",
+    "fp.tagline": "Una capa de coordinación en 89 países, 332 ciudades y más de 2.100 ingenieros de campo.",
     "fp.overview": "iberix opera una sola capa de coordinación en EMEA, APAC y América. Equipos locales entregan con un único interlocutor responsable, con dispatch en tiempo real y entrega documentada en cada frontera.",
     "fp.zones": "Resumen por zona",
     "fp.ready": "¿Despliegues en varias zonas?",

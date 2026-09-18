@@ -10,13 +10,13 @@ export const REGIONS_DATA = [
       es: "Centro de entrega principal. Centros de operaciones en Londres y Frankfurt.",
     },
     overview: {
-      en: "Our primary delivery hub. iberix runs operations centres in London and Frankfurt, with in-country field engineering across 18 countries. The zone leads data centre commissioning and cross-border network rollouts for system integrators and operators.",
-      es: "Nuestro centro de entrega principal. iberix opera centros en Londres y Frankfurt, con ingeniería de campo local en 18 países. La zona lidera la puesta en marcha de centros de datos y despliegues de red transfronterizos para integradores y operadores.",
+      en: "Our primary delivery hub. iberix runs operations centres in London and Frankfurt, with in-country field engineering across 52 countries spanning Europe, the Middle East and Africa. The zone leads data centre commissioning and cross-border network rollouts for system integrators and operators.",
+      es: "Nuestro centro de entrega principal. iberix opera centros en Londres y Frankfurt, con ingeniería de campo local en 52 países de Europa, Oriente Medio y África. La zona lidera la puesta en marcha de centros de datos y despliegues de red transfronterizos para integradores y operadores.",
     },
     stats: [
-      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "480" },
-      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "18" },
-      { k: { en: "Live deployments", es: "Despliegues activos" }, v: "12" },
+      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "1,130+" },
+      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "52" },
+      { k: { en: "Locations", es: "Ubicaciones" }, v: "200" },
       { k: { en: "Operations centres", es: "Centros de operaciones" }, v: "2" },
     ],
     hubs: [
@@ -38,13 +38,13 @@ export const REGIONS_DATA = [
       es: "Nodo de coordinación en Singapur. Zona de despliegue de red de alto crecimiento.",
     },
     overview: {
-      en: "A high-growth network rollout zone. iberix coordinates APAC delivery from Singapore, mobilising in-country engineering teams across 11 countries for fibre, RAN and transport rollouts and data centre commissioning.",
-      es: "Una zona de despliegue de red de alto crecimiento. iberix coordina la entrega en APAC desde Singapur, movilizando equipos locales en 11 países para despliegues de fibra, RAN y transporte y puesta en marcha de centros de datos.",
+      en: "A high-growth network rollout zone. iberix coordinates APAC delivery from Singapore, mobilising in-country engineering teams across 23 countries for fibre, RAN and transport rollouts and data centre commissioning.",
+      es: "Una zona de despliegue de red de alto crecimiento. iberix coordina la entrega en APAC desde Singapur, movilizando equipos locales en 23 países para despliegues de fibra, RAN y transporte y puesta en marcha de centros de datos.",
     },
     stats: [
-      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "360" },
-      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "11" },
-      { k: { en: "Live deployments", es: "Despliegues activos" }, v: "8" },
+      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "549" },
+      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "23" },
+      { k: { en: "Locations", es: "Ubicaciones" }, v: "58" },
       { k: { en: "Coordination node", es: "Nodo de coordinación" }, v: "SG" },
     ],
     hubs: [
@@ -66,13 +66,13 @@ export const REGIONS_DATA = [
       es: "Dispatch desde Nueva York. Puesta en marcha de centros de datos a escala.",
     },
     overview: {
-      en: "New York dispatch across North and South America. iberix delivers data centre commissioning at scale and multi-country network rollouts, with in-country engineering teams across 9 countries and a single accountable SPOC.",
-      es: "Dispatch desde Nueva York en Norte y Sudamérica. iberix ofrece puesta en marcha de centros de datos a escala y despliegues de red en varios países, con equipos locales en 9 países y un único interlocutor responsable.",
+      en: "New York dispatch across North and South America. iberix delivers data centre commissioning at scale and multi-country network rollouts, with in-country engineering teams across 12 countries and a single accountable SPOC.",
+      es: "Dispatch desde Nueva York en Norte y Sudamérica. iberix ofrece puesta en marcha de centros de datos a escala y despliegues de red en varios países, con equipos locales en 12 países y un único interlocutor responsable.",
     },
     stats: [
-      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "290" },
-      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "9" },
-      { k: { en: "Live deployments", es: "Despliegues activos" }, v: "6" },
+      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "500+" },
+      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "12" },
+      { k: { en: "Locations", es: "Ubicaciones" }, v: "71" },
       { k: { en: "Dispatch centre", es: "Centro de dispatch" }, v: "NYC" },
     ],
     hubs: [
@@ -90,18 +90,18 @@ export const REGIONS_DATA = [
     label: "Global",
     title: { en: "Global Coordination", es: "Coordinación global" },
     tagline: {
-      en: "One coordination layer across EMEA, APAC and the Americas.",
-      es: "Una capa de coordinación en EMEA, APAC y América.",
+      en: "One coordination layer across seven regions.",
+      es: "Una capa de coordinación en siete regiones.",
     },
     overview: {
-      en: "A single coordination layer spanning every zone. iberix unifies EMEA, APAC and Americas delivery under one accountable SPOC, with real-time dispatch, documented handover and consistent governance across 38 countries.",
-      es: "Una sola capa de coordinación en todas las zonas. iberix unifica la entrega en EMEA, APAC y América bajo un único interlocutor responsable, con dispatch en tiempo real, entrega documentada y gobernanza consistente en 38 países.",
+      en: "A single coordination layer spanning every region. iberix unifies delivery across seven regions under one accountable SPOC, with real-time dispatch, documented handover and consistent governance across 89 countries.",
+      es: "Una sola capa de coordinación en todas las regiones. iberix unifica la entrega en siete regiones bajo un único interlocutor responsable, con dispatch en tiempo real, entrega documentada y gobernanza consistente en 89 países.",
     },
     stats: [
-      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "1,130" },
-      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "38" },
-      { k: { en: "Live deployments", es: "Despliegues activos" }, v: "26" },
-      { k: { en: "Coordination zones", es: "Zonas de coordinación" }, v: "3" },
+      { k: { en: "Engineers active", es: "Ingenieros activos" }, v: "2,100+" },
+      { k: { en: "Countries covered", es: "Países cubiertos" }, v: "89" },
+      { k: { en: "Locations", es: "Ubicaciones" }, v: "332" },
+      { k: { en: "Coordination regions", es: "Regiones de coordinación" }, v: "7" },
     ],
     hubs: [
       { city: "London", role: { en: "EMEA Coordination", es: "Coordinación EMEA" } },

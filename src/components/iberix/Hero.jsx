@@ -52,9 +52,9 @@ export default function Hero() {
   const { t } = useRegion();
 
   const stats = [
-    { k: "40+", v: t("hero.stat1") },
-    { k: "1,200+", v: t("hero.stat2") },
-    { k: "24/7", v: t("hero.stat3") },
+    { k: "89", v: t("hero.stat1") },
+    { k: "2,100+", v: t("hero.stat2") },
+    { k: "332", v: t("hero.stat3") },
     { k: "1", v: t("hero.stat4") },
   ];
 

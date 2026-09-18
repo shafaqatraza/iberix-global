@@ -19,9 +19,12 @@
     "region": {
       "type": "string",
       "enum": [
-        "EMEA",
         "APAC",
-        "Americas",
+        "Europe",
+        "North America",
+        "MENA",
+        "Africa",
+        "LATAM",
         "Global"
       ],
       "default": "Global",

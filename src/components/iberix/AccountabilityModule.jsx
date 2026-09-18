@@ -3,9 +3,10 @@ import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import { useReveal } from "@/hooks/useReveal";
 import { SERVICES } from "@/data/services";
+import SearchableSelect from "./SearchableSelect";
 import { useRegion } from "@/i18n/RegionContext";
 
-const REGIONS = ["EMEA", "APAC", "Americas", "Global"];
+const REGIONS = ["APAC", "Europe", "North America", "MENA", "Africa", "LATAM", "Global"];
 
 export default function AccountabilityModule({ showHeader = true }) {
   const [ref, visible] = useReveal();
@@ -106,11 +107,12 @@ export default function AccountabilityModule({ showHeader = true }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <Field label={t("acc.targetRegion")}>
-                    <select value={form.region} onChange={(e) => update("region", e.target.value)} className="iberix-input">
-                      {REGIONS.map((r) => (
-                        <option key={r} value={r}>{r}</option>
-                      ))}
-                    </select>
+                    <SearchableSelect
+                      options={REGIONS}
+                      value={form.region}
+                      onChange={(val) => update("region", val)}
+                      placeholder={t("acc.targetRegion")}
+                    />
                   </Field>
                   <Field label={t("acc.serviceInterest")}>
                     <select value={form.service} onChange={(e) => update("service", e.target.value)} className="iberix-input">

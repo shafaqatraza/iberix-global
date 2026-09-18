@@ -4,39 +4,75 @@ import { useRegion } from "@/i18n/RegionContext";
 
 const ZONES = [
   {
-    id: "emea",
-    label: "EMEA",
-    coords: { x: 50, y: 38 },
-    teams: 480,
-    countries: 18,
-    active: 12,
+    id: "europe",
+    label: "Europe",
+    coords: { x: 50, y: 28 },
+    teams: "800+",
+    countries: 30,
+    locations: 156,
     note: {
-      en: "Primary delivery hub. London & Frankfurt operations centres.",
+      en: "Primary delivery hub. London and Frankfurt operations centres.",
       es: "Centro de entrega principal. Centros de operaciones en Londres y Frankfurt.",
+    },
+  },
+  {
+    id: "north-america",
+    label: "North America",
+    coords: { x: 22, y: 32 },
+    teams: "200+",
+    countries: 3,
+    locations: 57,
+    note: {
+      en: "New York dispatch. Data centre commissioning at scale.",
+      es: "Dispatch desde Nueva York. Puesta en marcha de centros de datos a escala.",
     },
   },
   {
     id: "apac",
     label: "APAC",
-    coords: { x: 78, y: 56 },
-    teams: 360,
-    countries: 11,
-    active: 8,
+    coords: { x: 78, y: 48 },
+    teams: "549",
+    countries: 23,
+    locations: 58,
     note: {
       en: "Singapore coordination node. High-growth network rollout zone.",
       es: "Nodo de coordinación en Singapur. Zona de despliegue de red de alto crecimiento.",
     },
   },
   {
-    id: "americas",
-    label: "Americas",
-    coords: { x: 24, y: 46 },
-    teams: 290,
-    countries: 9,
-    active: 6,
+    id: "mena",
+    label: "MENA",
+    coords: { x: 55, y: 40 },
+    teams: "150+",
+    countries: 11,
+    locations: 24,
     note: {
-      en: "New York dispatch. Data centre commissioning at scale.",
-      es: "Dispatch desde Nueva York. Puesta en marcha de centros de datos a escala.",
+      en: "Dubai field hub. Data centre and network deployment across the Gulf.",
+      es: "Nodo de campo en Dubái. Despliegue de centros de datos y red en el Golfo.",
+    },
+  },
+  {
+    id: "africa",
+    label: "Africa",
+    coords: { x: 52, y: 55 },
+    teams: "180+",
+    countries: 11,
+    locations: 20,
+    note: {
+      en: "Nairobi and Johannesburg bases. Field support across the continent.",
+      es: "Bases en Nairobi y Johannesburgo. Soporte de campo en todo el continente.",
+    },
+  },
+  {
+    id: "latam",
+    label: "LATAM",
+    coords: { x: 30, y: 58 },
+    teams: "300+",
+    countries: 9,
+    locations: 14,
+    note: {
+      en: "São Paulo field hub. Multi-country network rollouts.",
+      es: "Nodo de campo en São Paulo. Despliegues de red en varios países.",
     },
   },
 ];
@@ -59,7 +95,7 @@ export default function GlobalFootprint() {
   const stats = [
     { k: zone.teams, v: t("foot.statEng") },
     { k: zone.countries, v: t("foot.statCountries") },
-    { k: zone.active, v: t("foot.statLive") },
+    { k: zone.locations, v: t("foot.statLive") },
   ];
 
   return (
