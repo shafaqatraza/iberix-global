@@ -45,6 +45,53 @@ The `./dist` directory contains fully static files that can be served by any sta
 
 ---
 
+## Hosting Mode Toggle
+
+The app supports two hosting modes controlled by a single environment variable. **No code changes are needed** to switch between them — just change the env var and redeploy.
+
+| Mode | `VITE_HOSTING_MODE` | What it does |
+|---|---|---|
+| **Base44** (default) | `base44` | Uses the Base44 SDK and managed backend (entities, auth, integrations, functions) |
+| **Independent** | `independent` | Routes all SDK calls to your own REST API at `VITE_API_URL` |
+
+### How to switch
+
+1. Set `VITE_HOSTING_MODE` in your `.env` file
+2. If `independent`, set `VITE_API_URL` to your backend URL
+3. Rebuild and deploy
+
+That's it. The switcher lives in `src/api/base44Client.js`. Every page, component, and hook imports `base44` from this single file. When the mode changes, the export swaps between the Base44 SDK client and a drop-in independent client (`src/api/independentClient.js`) that implements the same interface.
+
+### What the independent client expects
+
+Your backend must implement the REST endpoints documented in the [Backend API Specification](#2-backend-api-specification) below. The independent client maps every `base44.*` call to the corresponding HTTP request:
+
+| SDK call | HTTP request |
+|---|---|
+| `base44.auth.me()` | `GET /auth/me` |
+| `base44.auth.loginViaEmailPassword()` | `POST /auth/login` |
+| `base44.auth.loginWithProvider()` | Redirect to `GET /auth/:provider` |
+| `base44.auth.register()` | `POST /auth/register` |
+| `base44.auth.verifyOtp()` | `POST /auth/verify-otp` |
+| `base44.auth.resendOtp()` | `POST /auth/resend-otp` |
+| `base44.auth.resetPasswordRequest()` | `POST /auth/reset-request` |
+| `base44.auth.resetPassword()` | `POST /auth/reset` |
+| `base44.auth.updateMe()` | `PATCH /auth/me` |
+| `base44.app.getPublicSettings()` | `GET /app/settings` |
+| `base44.entities.Lead.create()` | `POST /leads` |
+| `base44.entities.Lead.list()` | `GET /leads` |
+| `base44.entities.Lead.filter()` | `GET /leads?q=` |
+| `base44.entities.Lead.get()` | `GET /leads/:id` |
+| `base44.entities.Lead.update()` | `PATCH /leads/:id` |
+| `base44.entities.Lead.delete()` | `DELETE /leads/:id` |
+| `base44.functions.invoke(name, payload)` | `POST /functions/:name` |
+| `base44.users.inviteUser()` | `POST /users/invite` |
+| `base44.integrations.Core.UploadPublicFile()` | `POST /upload` (multipart) |
+
+Token storage uses `localStorage` key `base44_access_token` (same as the Base44 SDK), so `app-params.js` works unchanged.
+
+---
+
 ## Ops Console (Admin Dashboard)
 
 A secret admin route at `/ops-console` provides a two-factor-authenticated dashboard to view partnership leads submitted through the site.
@@ -269,9 +316,11 @@ Store files in S3, Cloudinary, or local disk and return a publicly accessible UR
 | `POST` | `/api/admin/leads` | `{ sessionToken }` | `{ leads: [Lead] }` |
 | `POST` | `/api/admin/logout` | `{ sessionToken }` | `{ success: true }` |
 
-### 3. Replace the SDK Client
+### 3. SDK Client (Already Wired)
 
-Replace the contents of `src/api/base44Client.js` with your own API client. This is the single integration point — everything else in the app imports from here.
+The SDK client at `src/api/base44Client.js` is already a switcher — no replacement needed. When `VITE_HOSTING_MODE=independent`, it automatically uses the drop-in client at `src/api/independentClient.js` instead of the Base44 SDK. Just set the env var and deploy.
+
+If you need to customize the independent client (custom headers, different endpoints, WebSocket realtime, etc.), edit `src/api/independentClient.js`.
 
 ```js
 // src/api/base44Client.js
@@ -532,7 +581,8 @@ Deploy your API backend to:
 ```
 src/
 ├── api/
-│   └── base44Client.js       # ← Replace this with your API client
+│   ├── base44Client.js       # ← Switcher (Base44 SDK or independent client)
+│   └── independentClient.js  # ← Drop-in API client for independent hosting
 ├── components/
 │   ├── iberix/               # Brand components (Hero, Footer, etc.)
 │   └── ui/                   # shadcn/ui primitives
