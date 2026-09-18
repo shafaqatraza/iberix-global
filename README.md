@@ -60,7 +60,7 @@ bash src/deploy-frontend-only.sh
 The script creates `.env` from `src/.env.frontend-only.example`. Edit `.env` and paste your Web3Forms key:
 
 ```
-VITE_FRONTEND_ONLY=true
+VITE_HOSTING_MODE=frontend-only
 VITE_WEB3FORMS_KEY=your-key-here
 ```
 
@@ -86,7 +86,7 @@ Everything is controlled by one file: `.env`. The deploy script creates it autom
 | `ADMIN_USERNAME` | Ops Console login username | Any string |
 | `ADMIN_PASSWORD` | Ops Console login password | Any string |
 | `ADMIN_OTP_EMAIL` | Where OTP codes are sent | Any email address |
-| `VITE_FRONTEND_ONLY` | Enable frontend-only mode (no backend) | `true` to enable, leave blank for full mode |
+| `VITE_HOSTING_MODE` | Hosting mode | `base44` (default), `independent`, or `frontend-only` |
 | `VITE_WEB3FORMS_KEY` | Web3Forms key for frontend-only mode | Get free key at web3forms.com |
 
 **To change a variable:** edit `.env`, then run `bash src/deploy.sh` again.

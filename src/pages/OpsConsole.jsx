@@ -29,7 +29,7 @@ export default function OpsConsole() {
   const [statusFilter, setStatusFilter] = useState("all");
 
   // Frontend-only mode: no admin console available
-  if (import.meta.env.VITE_FRONTEND_ONLY === 'true') {
+  if (import.meta.env.VITE_HOSTING_MODE === 'frontend-only') {
     return (
       <div className="min-h-screen bg-ink flex items-center justify-center px-6">
         <div className="text-center">

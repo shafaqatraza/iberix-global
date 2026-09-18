@@ -32,7 +32,7 @@ export default function AccountabilityModule({ showHeader = true }) {
     setError("");
     setSubmitting(true);
     try {
-      if (import.meta.env.VITE_FRONTEND_ONLY === 'true') {
+      if (import.meta.env.VITE_HOSTING_MODE === 'frontend-only') {
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

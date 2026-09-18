@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAppState = async () => {
     // Frontend-only mode: no backend, skip all API calls
-    if (import.meta.env.VITE_FRONTEND_ONLY === 'true') {
+    if (import.meta.env.VITE_HOSTING_MODE === 'frontend-only') {
       setIsLoadingPublicSettings(false);
       setIsLoadingAuth(false);
       setIsAuthenticated(false);
