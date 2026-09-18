@@ -45,6 +45,44 @@ The `./dist` directory contains fully static files that can be served by any sta
 
 ---
 
+## Quick Deploy (Linux VPS)
+
+One command installs everything and deploys:
+
+```bash
+bash src/deploy.sh
+```
+
+The script automatically:
+1. Installs Node.js 18+ if missing (via NodeSource)
+2. Creates `.env` from `.env.example` if missing
+3. Runs `npm install` and `npm run build`
+4. Installs PM2 and starts the server as a background service
+5. Serves the app on port 3000 (override with `PORT=80 bash src/deploy.sh`)
+
+**Requirements:** A fresh Linux VPS (Ubuntu/Debian/CentOS) with `curl` and `sudo` access.
+
+**After deploy:**
+```bash
+pm2 logs iberix        # view logs
+pm2 restart iberix     # restart after code changes
+pm2 stop iberix        # stop
+pm2 startup            # auto-start on boot (run once)
+```
+
+**Port 80/443:** Run as root with `PORT=80 bash src/deploy.sh`, or put nginx in front:
+```nginx
+server {
+  listen 80;
+  server_name your-domain.com;
+  location / { proxy_pass http://localhost:3000; }
+}
+```
+
+The included `src/server.mjs` is a zero-dependency SPA server (uses only Node.js built-ins) with proper client-side routing fallback.
+
+---
+
 ## Hosting Mode Toggle
 
 The app supports two hosting modes controlled by a single environment variable. **No code changes are needed** to switch between them — just change the env var and redeploy.
