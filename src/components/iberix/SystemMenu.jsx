@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import Logo from "./Logo";
-import RegionSwitcher from "./RegionSwitcher";
 import { useRegion } from "@/i18n/RegionContext";
 import { SERVICES } from "@/data/services";
 
@@ -64,7 +63,6 @@ export default function SystemMenu() {
           <div className="flex items-center justify-between px-6 md:px-12 py-6">
             <Logo variant="light" className="text-xl" />
             <div className="flex items-center gap-6">
-              <RegionSwitcher variant="light" />
               <button
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-3 eyebrow text-paper/80 hover:text-brand-light transition-colors"

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Logo from "./Logo";
-import RegionSwitcher from "./RegionSwitcher";
 import { useRegion } from "@/i18n/RegionContext";
 
 export default function PageHeader({ eyebrow, title, tagline, image }) {
@@ -19,7 +18,6 @@ export default function PageHeader({ eyebrow, title, tagline, image }) {
         <header className="flex items-center justify-between px-6 md:px-12 py-6">
           <Link to="/"><Logo variant="light" className="text-xl" /></Link>
           <div className="flex items-center gap-6">
-            <RegionSwitcher variant="light" />
             <Link to="/" className="inline-flex items-center gap-2 eyebrow text-subtle hover:text-brand-light transition-colors">
               <ArrowLeft className="h-4 w-4" /> {t("common.commandCenter")}
             </Link>
