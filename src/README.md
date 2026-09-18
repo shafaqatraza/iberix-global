@@ -35,7 +35,7 @@ PORT=80 bash src/deploy.sh
 
 ## Backend (Independent Mode)
 
-The backend lives in `src/iberix-backend/`. The deploy script starts it automatically on port 3001 alongside the frontend. To use it instead of the managed platform, set `VITE_HOSTING_MODE=independent` and `VITE_API_URL=http://localhost:3001/api` in `.env`, then redeploy.
+The backend lives in `src/iberix-backend/`. The deploy script starts it automatically on port 3001 alongside the frontend. The frontend talks to it at `VITE_API_URL` (default `http://localhost:3001/api`).
 
 The backend has its own `.env` at `src/iberix-backend/.env` (auto-created from `.env.example`). Edit it to set the admin credentials, JWT secret, and email settings. See `src/iberix-backend/README.md` for the full guide.
 
@@ -49,8 +49,7 @@ Everything is controlled by one file: `.env`. The deploy script creates it autom
 
 | Variable | What it does | Options |
 |---|---|---|
-| `VITE_HOSTING_MODE` | Where the backend lives | `base44` (default, uses managed platform) or `independent` (your own API) |
-| `VITE_API_URL` | Your backend URL | Only needed if `VITE_HOSTING_MODE=independent` |
+| `VITE_API_URL` | Your backend URL | Default: `http://localhost:3001/api` |
 | `ADMIN_USERNAME` | Ops Console login username | Any string |
 | `ADMIN_PASSWORD` | Ops Console login password | Any string |
 | `ADMIN_OTP_EMAIL` | Where OTP codes are sent | Any email address |
@@ -68,7 +67,7 @@ A secret admin page to view partnership leads. No coding required.
 3. A 6-digit code is emailed to the address you set in `.env`
 4. Enter the code to see your leads
 
-**Note on email:** If your OTP email is not a registered app user, either invite it as one (App Users → Invite in the dashboard) or use `info@iberix.global` as the OTP email.
+**Note on email:** OTP codes are sent via the backend's email settings. If SMTP is not configured in the backend `.env`, codes print to the terminal. Run `pm2 logs iberix-backend` to see them.
 
 ---
 

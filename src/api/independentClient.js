@@ -1,7 +1,6 @@
-// Independent API client — drop-in replacement for the Base44 SDK.
-// Activated by setting VITE_HOSTING_MODE=independent in .env.
-// All calls route to your own backend at VITE_API_URL (defaults to /api).
-// No other code in the app changes — every file imports { base44 } from base44Client.
+// API client for the Iberix independent backend.
+// All calls route to your backend at VITE_API_URL (defaults to /api).
+// Every file imports { base44 } from base44Client — no other code changes.
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
 const TOKEN_KEY = 'base44_access_token';
