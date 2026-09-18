@@ -1,0 +1,44 @@
+{
+  "name": "AdminSession",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "title": "Session ID"
+    },
+    "otp_code": {
+      "type": "string",
+      "title": "OTP Code"
+    },
+    "purpose": {
+      "type": "string",
+      "enum": [
+        "otp",
+        "session"
+      ],
+      "default": "otp",
+      "title": "Purpose"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Expires At"
+    },
+    "used": {
+      "type": "boolean",
+      "default": false,
+      "title": "Used"
+    }
+  },
+  "required": [
+    "session_id",
+    "purpose",
+    "expires_at"
+  ],
+  "rls": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  }
+}

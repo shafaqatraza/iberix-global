@@ -15,6 +15,7 @@ import AccountabilityPage from './pages/AccountabilityPage';
 import PartnershipPage from './pages/PartnershipPage';
 import LegalPage from './pages/LegalPage';
 import CoveragePage from './pages/CoveragePage';
+import OpsConsole from './pages/OpsConsole';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -53,6 +54,7 @@ const AuthenticatedApp = () => {
       <Route path="/privacy" element={<LegalPage doc="privacy" />} />
       <Route path="/terms" element={<LegalPage doc="terms" />} />
       <Route path="/coverage" element={<CoveragePage />} />
+      <Route path="/ops-console" element={<OpsConsole />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
