@@ -45,6 +45,41 @@ The `./dist` directory contains fully static files that can be served by any sta
 
 ---
 
+## Ops Console (Admin Dashboard)
+
+A secret admin route at `/ops-console` provides a two-factor-authenticated dashboard to view partnership leads submitted through the site.
+
+### How it works
+
+1. Navigate to `your-domain/ops-console`
+2. Enter your admin username and password
+3. A 6-digit OTP code is emailed to your registered address
+4. Enter the OTP to access the leads dashboard
+
+### Required secrets
+
+| Secret | Description |
+|---|---|
+| `ADMIN_USERNAME` | Tough username for admin access |
+| `ADMIN_PASSWORD` | Tough password for admin access |
+| `ADMIN_OTP_EMAIL` | Email address where OTP codes are sent |
+
+**On Base44:** Set these in Dashboard → Settings → Environment Variables (Secrets).
+**Independent hosting:** Set in your backend `.env` file (see `.env.example`).
+
+> **Email delivery note:** The built-in email sender reaches registered app users always. Sending OTP to a Gmail that is not a registered app user requires a paid plan with a custom domain connected. If your Gmail is not registered as an app user, either invite it as one (App Users → Invite) or use `info@iberix.global` as the OTP email instead.
+
+### Features
+
+- Search leads by company, contact name, or email
+- Filter by status (new, contacted, qualified, partnered)
+- Summary stats (total + per status)
+- Refresh and sign out
+- OTP expires in 10 minutes; session expires in 24 hours
+- All session/OTP records are RLS-locked (no app user can access them; only the backend service role)
+
+---
+
 ## Independent Hosting Guide
 
 This app was built on the Base44 platform. The frontend is standard React/Vite and can be hosted anywhere. The backend (database, auth, integrations) is provided by Base44 and must be replaced to run fully independently.
@@ -145,9 +180,21 @@ CREATE TABLE app_settings (
   public_settings JSONB DEFAULT '{}'::jsonb
 );
 
+-- Admin console sessions (OTP codes + session tokens)
+CREATE TABLE admin_sessions (
+  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  session_id    VARCHAR(255) NOT NULL,
+  otp_code      VARCHAR(10),
+  purpose       VARCHAR(20) DEFAULT 'otp',  -- 'otp' or 'session'
+  expires_at    TIMESTAMPTZ NOT NULL,
+  used          BOOLEAN DEFAULT FALSE,
+  created_date  TIMESTAMPTZ DEFAULT NOW()
+);
+
 CREATE INDEX idx_leads_email ON leads(email);
 CREATE INDEX idx_leads_status ON leads(status);
 CREATE INDEX idx_otp_email ON otp_codes(email);
+CREATE INDEX idx_admin_session_id ON admin_sessions(session_id);
 ```
 
 ### 2. Backend API Specification
@@ -212,6 +259,15 @@ This is called on every page load. Return an empty object if you have no public 
 | `POST` | `/api/upload` | `multipart/form-data` with `file` field | `{ file_url: "https://..." }` |
 
 Store files in S3, Cloudinary, or local disk and return a publicly accessible URL.
+
+#### Admin Console (Ops Console)
+
+| Method | Path | Body | Returns |
+|---|---|---|---|
+| `POST` | `/api/admin/login` | `{ username, password }` | `{ otpSent, sessionId }` |
+| `POST` | `/api/admin/verify` | `{ sessionId, otp }` | `{ sessionToken }` |
+| `POST` | `/api/admin/leads` | `{ sessionToken }` | `{ leads: [Lead] }` |
+| `POST` | `/api/admin/logout` | `{ sessionToken }` | `{ success: true }` |
 
 ### 3. Replace the SDK Client
 
@@ -420,6 +476,11 @@ Create a `.env` file in the project root:
 # Frontend
 VITE_API_URL=https://your-api-domain.com/api
 
+# Admin Console (Ops Console)
+ADMIN_USERNAME=your-tough-username
+ADMIN_PASSWORD=your-tough-password
+ADMIN_OTP_EMAIL=your-email@gmail.com
+
 # Backend (in your backend .env)
 DATABASE_URL=postgresql://user:password@localhost:5432/iberix
 JWT_SECRET=your-strong-random-secret
@@ -478,13 +539,13 @@ src/
 ├── data/                     # Static data (services, regions, coverage, legal)
 ├── i18n/                     # Region context + translations (EN/ES)
 ├── lib/                      # Auth context, utils, app params
-├── pages/                    # Route pages (Home, ServiceSpec, RegionPage, etc.)
+├── pages/                    # Route pages (Home, ServiceSpec, RegionPage, OpsConsole, etc.)
 ├── App.jsx                   # Router
 ├── main.jsx                  # Entry point
 └── index.css                 # Tailwind + design tokens
 base44/                       # ← Remove for independent hosting
-├── entities/                # Entity schemas (Lead.jsonc)
-├── functions/                # Backend functions
+├── entities/                # Entity schemas (Lead.jsonc, AdminSession.jsonc)
+├── functions/                # Backend functions (AdminConsole)
 └── config.jsonc              # Base44 config
 ```
 
