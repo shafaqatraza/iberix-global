@@ -87,7 +87,7 @@ const DOTS = [
 
 export default function GlobalFootprint() {
   const [ref, visible] = useReveal();
-  const [active, setActive] = useState("emea");
+  const [active, setActive] = useState("europe");
   const { lang, t } = useRegion();
   const L = (v) => v[lang];
   const zone = ZONES.find((z) => z.id === active);
