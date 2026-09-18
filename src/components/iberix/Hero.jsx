@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import LiveStatusTicker from "./LiveStatusTicker";
 import SystemMenuButton from "./SystemMenu";
-import RegionSwitcher from "./RegionSwitcher";
 import Logo from "./Logo";
 import { useReveal } from "@/hooks/useReveal";
 import { useRegion } from "@/i18n/RegionContext";
@@ -78,7 +77,6 @@ export default function Hero() {
           <Logo variant="light" className="text-xl" />
           <div className="flex items-center gap-6">
             <LiveStatusTicker />
-            <RegionSwitcher variant="light" />
             <SystemMenuButton />
           </div>
         </header>
@@ -149,7 +147,7 @@ export default function Hero() {
         <div className="px-6 md:px-12 py-4 flex items-center justify-between eyebrow text-subtle/70">
           <span>Lat 51.5074° N / Lon 0.1278° W</span>
           <span className="hidden md:block">{t("common.scroll")}</span>
-          <span>Command Center v1.0</span>
+          <span>Operations Hub v1.0</span>
         </div>
       </div>
     </section>
