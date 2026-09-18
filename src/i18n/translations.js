@@ -166,7 +166,7 @@ export const STRINGS = {
 
     "cov.eyebrow": "06 / Coverage",
     "cov.title": "Operations coverage.",
-    "cov.tagline": "96 countries, 341 cities, one accountable coordination layer across every zone.",
+    "cov.tagline": "89 countries, 332 cities, one accountable coordination layer across every zone.",
     "cov.intro": "Live field engineering footprint by region, country and city. Filter by zone, search any location, and expand a country to see its dispatch and resourcing detail.",
     "cov.searchPh": "Search country or city...",
     "cov.all": "All",
@@ -355,7 +355,7 @@ export const STRINGS = {
 
     "cov.eyebrow": "06 / Cobertura",
     "cov.title": "Cobertura operativa.",
-    "cov.tagline": "96 países, 341 ciudades, una capa de coordinación responsable en cada zona.",
+    "cov.tagline": "89 países, 332 ciudades, una capa de coordinación responsable en cada zona.",
     "cov.intro": "Presencia de ingeniería de campo activa por región, país y ciudad. Filtra por zona, busca cualquier ubicación y abre un país para ver su detalle de dispatch y recursos.",
     "cov.searchPh": "Buscar país o ciudad...",
     "cov.all": "Todas",
