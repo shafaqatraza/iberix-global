@@ -18,6 +18,14 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const checkAppState = async () => {
+    // Frontend-only mode: no backend, skip all API calls
+    if (import.meta.env.VITE_FRONTEND_ONLY === 'true') {
+      setIsLoadingPublicSettings(false);
+      setIsLoadingAuth(false);
+      setIsAuthenticated(false);
+      setAuthChecked(true);
+      return;
+    }
     try {
       setIsLoadingPublicSettings(true);
       setAuthError(null);

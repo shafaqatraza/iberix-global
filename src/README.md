@@ -43,6 +43,39 @@ The backend has its own `.env` at `src/iberix-backend/.env` (auto-created from `
 
 ---
 
+## Frontend-Only Mode (No Backend)
+
+If you don't want a backend, database, or admin panel — just a website where the contact form emails you directly — use the frontend-only deploy.
+
+### Step 1 — Get a free email key
+
+Go to [web3forms.com](https://web3forms.com), enter your email, and copy the access key they give you. Form submissions will be sent to that email.
+
+### Step 2 — Deploy
+
+```bash
+bash src/deploy-frontend-only.sh
+```
+
+The script creates `.env` from `src/.env.frontend-only.example`. Edit `.env` and paste your Web3Forms key:
+
+```
+VITE_FRONTEND_ONLY=true
+VITE_WEB3FORMS_KEY=your-key-here
+```
+
+Then redeploy:
+
+```bash
+bash src/deploy-frontend-only.sh
+```
+
+That's it. No backend, no database. When someone fills out the partnership form, you get an email instantly.
+
+**Note:** The Ops Console (admin dashboard) is not available in this mode.
+
+---
+
 ## Variables You Can Change
 
 Everything is controlled by one file: `.env`. The deploy script creates it automatically from `.env.example`. Edit it and redeploy to change behavior.
@@ -53,6 +86,8 @@ Everything is controlled by one file: `.env`. The deploy script creates it autom
 | `ADMIN_USERNAME` | Ops Console login username | Any string |
 | `ADMIN_PASSWORD` | Ops Console login password | Any string |
 | `ADMIN_OTP_EMAIL` | Where OTP codes are sent | Any email address |
+| `VITE_FRONTEND_ONLY` | Enable frontend-only mode (no backend) | `true` to enable, leave blank for full mode |
+| `VITE_WEB3FORMS_KEY` | Web3Forms key for frontend-only mode | Get free key at web3forms.com |
 
 **To change a variable:** edit `.env`, then run `bash src/deploy.sh` again.
 

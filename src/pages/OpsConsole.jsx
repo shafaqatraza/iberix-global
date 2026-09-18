@@ -28,6 +28,21 @@ export default function OpsConsole() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
 
+  // Frontend-only mode: no admin console available
+  if (import.meta.env.VITE_FRONTEND_ONLY === 'true') {
+    return (
+      <div className="min-h-screen bg-ink flex items-center justify-center px-6">
+        <div className="text-center">
+          <Link to="/"><Logo variant="light" className="text-2xl" /></Link>
+          <p className="mt-8 text-brand-light text-lg">Admin console is not available in frontend-only mode.</p>
+          <Link to="/" className="mt-6 inline-flex items-center gap-2 text-subtle hover:text-paper transition-colors text-sm">
+            <ArrowLeft className="h-3.5 w-3.5" /> Return to site
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   const getError = (err) =>
     err?.data?.error || err?.response?.data?.error || err?.message || "Request failed";
 

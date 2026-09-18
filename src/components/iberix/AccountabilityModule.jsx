@@ -32,7 +32,26 @@ export default function AccountabilityModule({ showHeader = true }) {
     setError("");
     setSubmitting(true);
     try {
-      await base44.entities.Lead.create({ ...form, status: "new" });
+      if (import.meta.env.VITE_FRONTEND_ONLY === 'true') {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+            subject: "New partnership lead — Iberix Global",
+            from_name: "Iberix Website",
+            name: form.contact_name,
+            email: form.email,
+            company: form.company,
+            region: form.region,
+            service: form.service,
+            scope: form.scope,
+          }),
+        });
+        if (!res.ok) throw new Error("Failed to send");
+      } else {
+        await base44.entities.Lead.create({ ...form, status: "new" });
+      }
       setDone(true);
     } catch (err) {
       setError(t("acc.error"));
