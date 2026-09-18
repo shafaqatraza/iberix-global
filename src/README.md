@@ -33,6 +33,16 @@ PORT=80 bash src/deploy.sh
 
 ---
 
+## Backend (Independent Mode)
+
+The backend lives in `src/iberix-backend/`. The deploy script starts it automatically on port 3001 alongside the frontend. To use it instead of the managed platform, set `VITE_HOSTING_MODE=independent` and `VITE_API_URL=http://localhost:3001/api` in `.env`, then redeploy.
+
+The backend has its own `.env` at `src/iberix-backend/.env` (auto-created from `.env.example`). Edit it to set the admin credentials, JWT secret, and email settings. See `src/iberix-backend/README.md` for the full guide.
+
+**Email without SMTP:** If you leave the SMTP settings blank in the backend `.env`, all verification codes and OTP codes print to the terminal. Run `pm2 logs iberix-backend` to see them.
+
+---
+
 ## Variables You Can Change
 
 Everything is controlled by one file: `.env`. The deploy script creates it automatically from `.env.example`. Edit it and redeploy to change behavior.
@@ -66,10 +76,12 @@ A secret admin page to view partnership leads. No coding required.
 
 | Command | What it does |
 |---|---|
-| `pm2 logs iberix` | See live logs |
-| `pm2 restart iberix` | Restart the app (after editing `.env` or updating code) |
-| `pm2 stop iberix` | Stop the app |
-| `pm2 startup` | Make the app auto-start when the server reboots (run once) |
+| `pm2 logs iberix` | See live frontend logs |
+| `pm2 logs iberix-backend` | See live backend logs (shows OTP codes if SMTP not configured) |
+| `pm2 restart iberix` | Restart the frontend (after editing `.env` or updating code) |
+| `pm2 restart iberix-backend` | Restart the backend (after editing backend `.env`) |
+| `pm2 stop iberix` | Stop the frontend |
+| `pm2 startup` | Make both apps auto-start when the server reboots (run once) |
 
 ---
 

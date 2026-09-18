@@ -69,8 +69,24 @@ if ! command -v pm2 &>/dev/null; then
   sudo npm install -g pm2 2>/dev/null || npm install -g pm2
 fi
 
-# ─── 6. Start server ─────────────────────────────────────
-echo "→ Starting on port $PORT..."
+# ─── 6. Start backend (if bundled) ───────────────────────
+BACKEND_DIR="src/iberix-backend"
+if [ -f "$BACKEND_DIR/package.json" ]; then
+  echo "→ Setting up backend..."
+  cd "$BACKEND_DIR"
+  npm install
+  if [ ! -f ".env" ]; then
+    cp .env.example .env
+    echo "→ Created backend .env from .env.example (edit to configure)"
+  fi
+  pm2 delete iberix-backend 2>/dev/null || true
+  pm2 start src/index.js --name iberix-backend
+  pm2 save 2>/dev/null || true
+  cd "$PROJECT_DIR"
+fi
+
+# ─── 7. Start frontend server ───────────────────────────
+echo "→ Starting frontend on port $PORT..."
 pm2 delete iberix 2>/dev/null || true
 pm2 start src/server.mjs --name iberix -- --port "$PORT"
 pm2 save 2>/dev/null || true
@@ -88,7 +104,11 @@ fi
 echo ""
 echo "╔════════════════════════════════════════════╗"
 echo "║  ✓ Deployed!                                 ║"
-echo "║  URL:     http://localhost:$PORT              ║"
+echo "║  Frontend: http://localhost:$PORT              ║"
+if [ -f "src/iberix-backend/package.json" ]; then
+echo "║  Backend:  http://localhost:3001/api           ║"
+echo "║  Backend logs: pm2 logs iberix-backend       ║"
+fi
 echo "║  Logs:    pm2 logs iberix                   ║"
 echo "║  Stop:    pm2 stop iberix                   ║"
 echo "║  Restart: pm2 restart iberix                ║"
