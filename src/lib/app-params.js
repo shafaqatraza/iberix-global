@@ -1,4 +1,6 @@
-import { getAccessToken } from '@base44/sdk';
+// Inlined token logic from @base44/sdk to avoid bundling the entire SDK
+// in static (frontend-only) builds. The behavior is identical to the SDK's
+// getAccessToken: reads from URL params, saves to localStorage, removes from URL.
 
 const isNode = typeof window === 'undefined';
 
@@ -9,6 +11,26 @@ const clearStoredAccessToken = () => {
 	window.localStorage.removeItem('base44_access_token');
 	window.localStorage.removeItem('token');
 }
+
+const getAccessToken = () => {
+	if (isNode) return null;
+	try {
+		const urlParams = new URLSearchParams(window.location.search);
+		let token = urlParams.get('access_token');
+		if (token) {
+			localStorage.setItem('base44_access_token', token);
+			urlParams.delete('access_token');
+			const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '') + window.location.hash;
+			window.history.replaceState(null, '', newUrl);
+		}
+		if (!token) {
+			token = localStorage.getItem('base44_access_token');
+		}
+		return token;
+	} catch {
+		return null;
+	}
+};
 
 const getAppParams = () => {
 	if (isClearAccessTokenRequested()) {
@@ -21,7 +43,6 @@ const getAppParams = () => {
 		appBaseUrl: import.meta.env.VITE_BASE44_APP_BASE_URL,
 	}
 }
-
 
 export const appParams = {
 	...getAppParams()
