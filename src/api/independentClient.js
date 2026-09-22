@@ -1,7 +1,3 @@
-// API client for the Iberix independent backend.
-// All calls route to your backend at VITE_API_URL (defaults to /api).
-// Every file imports { base44 } from base44Client — no other code changes.
-
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
 const TOKEN_KEY = 'base44_access_token';
 
