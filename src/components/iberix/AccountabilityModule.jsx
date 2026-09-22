@@ -33,11 +33,16 @@ export default function AccountabilityModule({ showHeader = true }) {
     setSubmitting(true);
     try {
       if (import.meta.env.VITE_HOSTING_MODE === 'frontend-only') {
+        const web3Key = import.meta.env.VITE_WEB3FORMS_KEY;
+        if (!web3Key) {
+          console.error("VITE_WEB3FORMS_KEY is missing from the build. Check GitHub repository secret and re-run workflow.");
+          throw new Error("Configuration missing");
+        }
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+            access_key: web3Key,
             subject: "New partnership lead — Iberix Global",
             from_name: "Iberix Website",
             name: form.contact_name,
