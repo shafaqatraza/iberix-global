@@ -60,7 +60,7 @@ export default function Footer() {
                 <span>{t("f.phone")}</span>
               </a>
               <a
-                href="mailto:info@iberix.global"
+                href="mailto:info@iberix.co.uk"
                 className="inline-flex items-center gap-2 text-subtle hover:text-brand-light transition-colors text-sm"
               >
                 <span className="eyebrow text-subtle/70">Email</span>

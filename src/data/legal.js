@@ -59,8 +59,8 @@ export const LEGAL = {
       {
         title: { en: "Your rights", es: "Tus derechos" },
         body: {
-          en: "You may request access to, correction of, deletion of or portability of your personal data, and you may object to or restrict certain processing. To exercise these rights, contact ops@iberix.global.",
-          es: "Puedes solicitar acceso, rectificación, supresión o portabilidad de tus datos personales, y oponerte a o restringir determinados tratamientos. Para ejercerlos, contacta con ops@iberix.global.",
+          en: "You may request access to, correction of, deletion of or portability of your personal data, and you may object to or restrict certain processing. To exercise these rights, contact ops@iberix.co.uk.",
+          es: "Puedes solicitar acceso, rectificación, supresión o portabilidad de tus datos personales, y oponerte a o restringir determinados tratamientos. Para ejercerlos, contacta con ops@iberix.co.uk.",
         },
       },
       {
@@ -73,8 +73,8 @@ export const LEGAL = {
       {
         title: { en: "Contact", es: "Contacto" },
         body: {
-          en: "For privacy questions or requests, contact us at ops@iberix.global, or write to Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
-          es: "Para consultas o solicitudes de privacidad, contacta con ops@iberix.global o escribe a Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          en: "For privacy questions or requests, contact us at ops@iberix.co.uk, or write to Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          es: "Para consultas o solicitudes de privacidad, contacta con ops@iberix.co.uk o escribe a Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
         },
       },
     ],
@@ -167,8 +167,8 @@ export const LEGAL = {
       {
         title: { en: "Contact", es: "Contacto" },
         body: {
-          en: "For questions about these terms, contact ops@iberix.global, or write to Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
-          es: "Para consultas sobre estos términos, contacta con ops@iberix.global o escribe a Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          en: "For questions about these terms, contact ops@iberix.co.uk, or write to Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
+          es: "Para consultas sobre estos términos, contacta con ops@iberix.co.uk o escribe a Iberix Global Ltd. (No. SC902201), Office 674, 18 Young St, UNIT LGE, Edinburgh, EH2 4JB, Scotland.",
         },
       },
     ],
